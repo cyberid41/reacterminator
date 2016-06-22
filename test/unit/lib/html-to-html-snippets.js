@@ -48,40 +48,6 @@ describe('html-to-html-snippets', function () {
     )
   })
 
-  it('should throw an error when the name is not upper camelcase', function () {
-    assert.throws(
-      function () {
-        htmlToHtmlSnippets({
-          htmlFile: {
-            fileContent: '<div data-component-name="abcdef"></div>'
-          }
-        })
-      },
-      /is not upper camel case/
-    )
-    assert.throws(
-      function () {
-        htmlToHtmlSnippets({
-          htmlFile: {
-            fileContent: '<div data-component-name="Abc-def"></div>'
-          }
-        })
-      },
-      /is not upper camel case/
-    )
-  })
-
-  it('should not override an existing component', function () {
-    const fileContent = `\
-<div data-component-name="ComponentA">first</div>
-<div data-component-name="ComponentA">second</div>`
-
-    assert.deepEqual(
-      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
-      '<div>first</div>'
-    )
-  })
-
   it('should remove commented nodes', function () {
     const fileContent = `\
 <div data-component-name="ComponentA">

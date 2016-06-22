@@ -7,7 +7,8 @@ describe('data-primary', function () {
   it('should use the primary component', function () {
     var content = `\
 <div data-component-name="ComponentA">Not Primary</div>
-<div data-component-name="ComponentA" data-component-primary="true">Primary</div>`
+<div data-component-name="ComponentA" data-component-primary="true">Primary</div>
+<div data-component-name="ComponentA">Not Primaty Either</div>`
 
     var ComponentAExpected = `\
 import React from 'react';

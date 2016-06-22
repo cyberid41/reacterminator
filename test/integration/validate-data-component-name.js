@@ -8,36 +8,6 @@ describe('reacterminator', function () {
      function () {
        reacterminator({
          type: 'string',
-         content: '<div data-component-name="first-name"></div>'
-       })
-     },
-     /is not upper camel case/
-    )
-
-    assert.throws(
-     function () {
-       reacterminator({
-         type: 'string',
-         content: '<div data-component-name="first_name"></div>'
-       })
-     },
-     /is not upper camel case/
-    )
-
-    assert.throws(
-     function () {
-       reacterminator({
-         type: 'string',
-         content: '<div data-component-name="first_name"></div>'
-       })
-     },
-     /is not upper camel case/
-    )
-
-    assert.throws(
-     function () {
-       reacterminator({
-         type: 'string',
          content: '<div data-component-name=""></div>'
        })
      },

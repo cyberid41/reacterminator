@@ -215,11 +215,18 @@ import isGoing from './is-going';
 import name from './name';
 import phoneNumber from './phone-number';
 
-export default combineReducers({
+export default (state = {}, action) => {
+  switch (action.type) {
+    case 'REDUX_EXAMPLE_INITIALIZE':
+      return action.value;
+    default:
+      return combineReducers({
 isGoing,
 name,
 phoneNumber
-})
+      })(state, action);
+  }
+}
 `
     )
 
@@ -231,9 +238,16 @@ phoneNumber
 import { combineReducers } from 'redux';
 import reduxExample from './redux-example/index';
 
-export default combineReducers({
+export default (state = {}, action) => {
+  switch (action.type) {
+    case 'REDUCERS_INITIALIZE':
+      return action.value;
+    default:
+      return combineReducers({
 reduxExample
-})
+      })(state, action);
+  }
+}
 `
     )
   })

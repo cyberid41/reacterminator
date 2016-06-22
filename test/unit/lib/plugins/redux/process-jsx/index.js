@@ -196,7 +196,7 @@ describe('lib/plugins/redux/process-jsx', function () {
     assert.deepEqual(
       generate(ast, {}, '').code,
       `\
-<select name="select" id="user" selected={this.props['state.user.user']} onChange={this.props['action.user.selectUser']}>
+<select name="select" id="user" value={this.props['state.user.user']} onChange={this.props['action.user.selectUser']}>
   <option value="value1">Value 1</option>
   <option value="value2" selected>Value 2</option>
   <option value="value3">Value 3</option>

@@ -35,7 +35,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Stack index="path">
+        <Stack indexKey="path" activeLayerIndex={this.props.path}>
           <Login index="login" />
         </Stack>
       </Provider>
@@ -72,7 +72,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Stack index="path">
+        <Stack indexKey="path" activeLayerIndex={this.props.path}>
           <Index index="" />
         </Stack>
       </Provider>

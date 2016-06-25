@@ -27,6 +27,7 @@ describe('redux-integration', function () {
       `\
 /* eslint-disable */
 import React from 'react';
+import ComponentA from './ComponentA';
 import { connect as reduxConnect } from 'react-redux';
 import action from '../action-creators/index';
 
@@ -50,8 +51,8 @@ class ReduxExample extends React.Component {
             name="phone-number-login"
             value={this.props['state.reduxExample.phoneNumber']}
             onChange={this.props['action.reduxExample.changePhoneNumber']} />
-          <button id="single-button" onClick={this.props['action.reduxExample.clickSingleButton']}>
-          </button>
+          <button id="single-button" onClick={this.props['action.reduxExample.clickSingleButton']} />
+          <ComponentA />
         </form>
       </div>
       );
@@ -78,8 +79,27 @@ export default ReduxExampleWithRedux;
 `
     )
 
-    // assert store content
+    // assert component
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/components/ComponentA.jsx', 'utf8'),
+      `\
+/* eslint-disable */
+import React from 'react';
 
+class ComponentA extends React.Component {
+  render() {
+    return (
+      <div />
+      );
+  }
+}
+;
+
+export default ComponentA;
+`
+    )
+
+    // assert store content
     assert.deepEqual(
       fs.readFileSync('./reacterminator/store.js', 'utf8'),
       `\

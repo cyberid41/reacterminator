@@ -27,7 +27,7 @@ describe('kitchen-sinck', function () {
       data-component-name="CustomRoute"
       data-component-imports="import {Route} from 'react-router'"
       data-component-wrapper="Route">
-      I am a route
+      I am a &nbsp route
     </div>
     <img src="logo.jpg">
     <div data-component-value="{firstName}">Poetic</div>
@@ -81,7 +81,7 @@ class CustomRoute extends React.Component {
   render() {
     return (
       <Route>
-        I am a route
+        I am a &nbsp route
       </Route>
       );
   }

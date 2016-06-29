@@ -84,7 +84,7 @@ class App extends React.Component {
 export default App;
 `
 
-    const components = reacterminator({type: 'string', content: content})
+    const components = reacterminator({type: 'string', content})
 
     const AppActual = components.App.formattedFileSnippet
     assert.deepEqual(AppActual, AppExpected)

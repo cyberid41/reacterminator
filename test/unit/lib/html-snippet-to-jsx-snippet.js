@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var htmlSnippetToJsxSnippet = require('../../../lib/html-snippet-to-jsx-snippet')
+// var assert = require('chai').assert
+// var htmlSnippetToJsxSnippet = require('../../../lib/html-snippet-to-jsx-snippet')
 
 // TODO: move this into tests for plugins
 describe.skip('html-snippet-to-jsx-snippet', function () {

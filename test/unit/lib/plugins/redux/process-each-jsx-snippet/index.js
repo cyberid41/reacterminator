@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
 const parse = require('../../../../../../lib/helpers/parse')
-const processJsx = require('../../../../../../lib/plugins/redux/process-jsx')
+const processEachJsxSnippet = require('../../../../../../lib/plugins/redux/process-each-jsx-snippet')
 const generate = require('babel-generator').default
 
 const component = {
@@ -12,10 +12,10 @@ const component = {
   }
 }
 
-describe('lib/plugins/redux/process-jsx', function () {
+describe('lib/plugins/redux/process-each-jsx-snippet', function () {
   it('should add value and onChange to input', function () {
     const ast = parse('<input id="name" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.state,
@@ -35,7 +35,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add value and onChange to textarea', function () {
     const ast = parse('<textarea id="name" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.state,
@@ -55,7 +55,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add value and onChange to input for email', function () {
     const ast = parse('<input id="email" type="email" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.state,
@@ -75,7 +75,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add onClick to button', function () {
     const ast = parse('<button id="delete" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
@@ -90,7 +90,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add onSubmit to form', function () {
     const ast = parse('<form id="add-user" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
@@ -105,7 +105,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should not add any props to a div', function () {
     const ast = parse('<div id="add-user" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
@@ -120,7 +120,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add onClick to input[type=submit]', function () {
     const ast = parse('<input id="name" type="submit" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
@@ -135,7 +135,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add onClick to input[type=button]', function () {
     const ast = parse('<input id="name" type="button" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
@@ -150,7 +150,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add onChange and checked to input[type=radio]', function () {
     const ast = parse('<input id="name" type="radio" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
@@ -165,7 +165,7 @@ describe('lib/plugins/redux/process-jsx', function () {
 
   it('should add onChange and checked to input[type=checkbox]', function () {
     const ast = parse('<input id="name" type="checkbox" />')
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
@@ -186,7 +186,7 @@ describe('lib/plugins/redux/process-jsx', function () {
   <option value="value3">Value 3</option>
 </select>
 `)
-    const jsxResult = processJsx({component, ast})
+    const jsxResult = processEachJsxSnippet({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,

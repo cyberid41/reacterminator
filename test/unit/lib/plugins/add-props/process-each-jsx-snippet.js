@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
-const parse = require('../../../../lib/helpers/parse')
+const parse = require('../../../../../lib/helpers/parse')
 const generate = require('babel-generator').default
-const addProps = require('../../../../lib/html-snippet-to-jsx-snippet/add-props')
+const addProps = require('../../../../../lib/plugins/add-props/process-each-jsx-snippet')
 
 describe('add props', function () {
   it('should add props', function () {
@@ -16,9 +16,7 @@ describe('add props', function () {
   <div firstName={'Poetic'}></div>
 </div>;`
 
-    const ast = parse(content)
-
-    addProps({ast})
+    const { component: {ast} } = addProps({component: { ast: parse(content) }})
 
     assert.deepEqual(
       generate(ast, {}, '').code,
@@ -37,9 +35,7 @@ describe('add props', function () {
   <div className="active" firstName={'Poetic'}></div>
 </div>;`
 
-    const ast = parse(content)
-
-    addProps({ast})
+    const { component: {ast} } = addProps({component: { ast: parse(content) }})
 
     assert.deepEqual(
       generate(ast, {}, '').code,

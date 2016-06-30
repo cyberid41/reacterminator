@@ -1,10 +1,10 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var reacterminator = require('../../lib/index')
+const { assert } = require('chai')
+const reacterminator = require('../../lib/index')
 
 describe('kitchen-sinck', function () {
   it('should show all the functions', function () {
-    var content = `
+    const content = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +36,7 @@ describe('kitchen-sinck', function () {
 </body>
 `
 
-    var expectedHeader = `\
+    const expectedHeader = `\
 import React from 'react';
 import ListItem from './ListItem';
 import CustomRoute from './CustomRoute';
@@ -58,7 +58,7 @@ class Header extends React.Component {
 
 export default Header;\n`
 
-    var expectedListItem = `\
+    const expectedListItem = `\
 import React from 'react';
 
 class ListItem extends React.Component {
@@ -73,7 +73,7 @@ class ListItem extends React.Component {
 
 export default ListItem;\n`
 
-    var expectedCustomRoute = `\
+    const expectedCustomRoute = `\
 import React from 'react';
 import { Route } from 'react-router';
 
@@ -89,7 +89,7 @@ class CustomRoute extends React.Component {
 
 export default CustomRoute;\n`
 
-    var components = reacterminator({type: 'string', content: content})
+    const components = reacterminator({type: 'string', content: content})
 
     assert.deepEqual(components.Header.formattedFileSnippet, expectedHeader)
     assert.deepEqual(components.ListItem.formattedFileSnippet, expectedListItem)

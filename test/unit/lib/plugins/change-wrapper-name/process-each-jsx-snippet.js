@@ -8,28 +8,26 @@ describe('change wrapper name', function () {
   it('should change wrapper name', function () {
     const { component: { ast } } = changeWrapperName({
       component: {
-        ast: parse('<div/>'),
-        wrapper: 'ComponentA'
+        ast: parse('<div data-component-wrapper="ComponentA"/>')
       }
     })
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<ComponentA />;'
+      '<ComponentA  />;'
     )
   })
 
   it('should change wrapper name for a component with inner content', function () {
     const { component: { ast } } = changeWrapperName({
       component: {
-        ast: parse('<div >text</div>'),
-        wrapper: 'ComponentA'
+        ast: parse('<div data-component-wrapper="ComponentA">text</div>')
       }
     })
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<ComponentA>text</ComponentA>;'
+      '<ComponentA >text</ComponentA>;'
     )
   })
 })

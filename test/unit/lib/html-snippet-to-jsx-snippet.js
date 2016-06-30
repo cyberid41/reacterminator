@@ -2,7 +2,8 @@
 var assert = require('chai').assert
 var htmlSnippetToJsxSnippet = require('../../../lib/html-snippet-to-jsx-snippet')
 
-describe('html-snippet-to-jsx-snippet', function () {
+// TODO: move this into tests for plugins
+describe.skip('html-snippet-to-jsx-snippet', function () {
   it('should convert annotated tags to component', function () {
     var component = {
       componentName: 'ComponentA',

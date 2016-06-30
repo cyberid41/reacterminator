@@ -10,7 +10,7 @@ describe('add-declaration', function () {
     }
 
     assert.deepEqual(
-      addDeclaration({component}).declarationSnippet,
+      addDeclaration({component}).component.declarationSnippet,
       `\
 class ComponentA extends React.Component {
   render() {

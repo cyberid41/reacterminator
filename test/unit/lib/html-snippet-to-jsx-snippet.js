@@ -10,7 +10,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}),
+      htmlSnippetToJsxSnippet({component}).component,
       {
         componentName: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name="ComponentB"> </div> </div>',
@@ -27,7 +27,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}),
+      htmlSnippetToJsxSnippet({component}).component,
       {
         componentName: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name="ComponentB"> <div data-component-name="ComponentC"> </div> </div> </div>',
@@ -44,7 +44,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}),
+      htmlSnippetToJsxSnippet({component}).component,
       {
         componentName: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name="ComponentB"> <div data-component-name="ComponentC"> </div> </div> <div> not a component </div> </div>',
@@ -61,7 +61,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}).jsxSnippet,
+      htmlSnippetToJsxSnippet({component}).component.jsxSnippet,
       '<div className="class-a" htmlFor="input-a" />'
     )
   })
@@ -73,7 +73,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}).jsxSnippet,
+      htmlSnippetToJsxSnippet({component}).component.jsxSnippet,
       '<div className="class-a" htmlFor="input-a"><div className="class-b" /></div>'
     )
   })
@@ -85,7 +85,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}).jsxSnippet,
+      htmlSnippetToJsxSnippet({component}).component.jsxSnippet,
       '<div style={{ paddingRight: \'100px\', WebketFlexBox: \'flex\' }} />'
     )
   })
@@ -97,7 +97,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}).jsxSnippet,
+      htmlSnippetToJsxSnippet({component}).component.jsxSnippet,
       '<div style={{}} />'
     )
   })
@@ -109,7 +109,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}).jsxSnippet,
+      htmlSnippetToJsxSnippet({component}).component.jsxSnippet,
       '<div style={{ fontSize: \'10px\' }} className="class-a" />'
     )
   })
@@ -125,7 +125,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}).jsxSnippet,
+      htmlSnippetToJsxSnippet({component}).component.jsxSnippet,
       '<div id="component-a"> <ComponentB></ComponentB> </div>'
     )
   })
@@ -141,7 +141,7 @@ describe('html-snippet-to-jsx-snippet', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet({component}).jsxSnippet,
+      htmlSnippetToJsxSnippet({component}).component.jsxSnippet,
       '<div id="component-a"> <div id="component-b"> </div> </div>'
     )
   })

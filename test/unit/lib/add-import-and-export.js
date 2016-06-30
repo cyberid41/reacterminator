@@ -17,7 +17,7 @@ class ComponentA extends React.Component {
     }
 
     assert.deepEqual(
-      addImportAndExport({component, options}).fileSnippet,
+      addImportAndExport({component, options}).component.fileSnippet,
       `\
 import React from 'react';
 
@@ -45,7 +45,7 @@ class ComponentA extends React.Component {
     }
 
     assert.deepEqual(
-      addImportAndExport({component, components: {}, options}).fileSnippet,
+      addImportAndExport({component, components: {}, options}).component.fileSnippet,
       `\
 import React from 'react';
 import ComponentB from './ComponentB';
@@ -73,7 +73,7 @@ class ComponentA extends React.Component {
     }
 
     assert.deepEqual(
-      addImportAndExport({component, components: {}, options}).fileSnippet,
+      addImportAndExport({component, components: {}, options}).component.fileSnippet,
       `\
 import React from 'react';
 import ComponentB from './ComponentB';
@@ -98,7 +98,7 @@ export default ComponentA;\n`
     }
 
     assert.deepEqual(
-      addImportAndExport({component, options}).fileSnippet,
+      addImportAndExport({component, options}).component.fileSnippet,
       `\
 import React from 'react';
 import {Router} from 'react-router';

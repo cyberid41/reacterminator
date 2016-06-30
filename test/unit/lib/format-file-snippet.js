@@ -19,7 +19,7 @@ export default ComponentA;\n`
     }
 
     assert.deepEqual(
-      formatFileSnippet({component}).formattedFileSnippet,
+      formatFileSnippet({component}).component.formattedFileSnippet,
       `\
 class ComponentA extends React.Component {
   render() {

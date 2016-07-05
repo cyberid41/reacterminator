@@ -1,12 +1,10 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var formatFileSnippet = require('../../../lib/format-file-snippet')
+const assert = require('chai').assert
+const formatFileSnippet = require('../../../../../lib/plugins/main/format-file-snippet')
 
 describe('format-file-snippet', function () {
   it('should format nested tags', function () {
-    var component = {
-      name: 'ComponentA',
-      fileSnippet: `\
+    const snippet = `\
 class ComponentA extends React.Component {
   render() {
     return (
@@ -16,10 +14,9 @@ class ComponentA extends React.Component {
 }
 
 export default ComponentA;\n`
-    }
 
     assert.deepEqual(
-      formatFileSnippet({component}).component.formattedFileSnippet,
+      formatFileSnippet(snippet),
       `\
 class ComponentA extends React.Component {
   render() {
@@ -52,9 +49,7 @@ export default ComponentA;\n`
   it('shouls throw an error when syntax is invalid', function () {
     assert.throw(
       function () {
-        formatFileSnippet({
-          component: {name: 'ComponentA', fileSnippet: 'div></div>'}
-        })
+        formatFileSnippet('div></div>')
       },
       /Unexpected token/i
     )

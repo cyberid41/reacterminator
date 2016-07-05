@@ -1,9 +1,8 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
-const addImportAndExport = require('../../../lib/add-import-and-export')
 const options = require('../../../lib/create-plugins-and-pipline')()
 
-describe('add-import-and-export', function () {
+describe.skip('add-import-and-export', function () {
   it('should not add import when there is no dependencies', function () {
     const component = {
       componentName: 'ComponentA',

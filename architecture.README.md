@@ -80,7 +80,7 @@ in the plugin object to apply to the data.
   }
   ```
 
-- withImportSnippets
+- imports
   ```javascript
   {
     components: {
@@ -91,14 +91,14 @@ in the plugin object to apply to the data.
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet],
-        withImportSnippet: [withImportSnippet]
+        imports: [imports]
       }
     },
     options: { }
   }
   ```
 
-- withExportSnippets
+- export
   ```javascript
   {
     components: {
@@ -109,8 +109,8 @@ in the plugin object to apply to the data.
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet],
-        withImportSnippet: [withImportSnippet],
-        withExportSnippet: [withExportSnippet]
+        imports: [imports],
+        export: [export]
       }
     },
     options: { }
@@ -128,31 +128,9 @@ in the plugin object to apply to the data.
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet],
-        withImportSnippet: [withImportSnippet],
-        withExportSnippet: [withExportSnippet],
+        imports: [imports],
+        export: [export],
         formatedsnippet: [formatedsnippet]
-      }
-    },
-    options: { }
-  }
-  ```
-
-- fileSnippets
-  ```javascript
-  {
-    components: {
-      [componentName]: {
-        fromPath: [fromPath],
-        isPath: [isPath],
-        componentName: [componentName],
-        htmlSnippet: [htmlSnippet],
-        jsxSnippet: [jsxSnippet],
-        declarationSnippet: [declarationSnippet],
-        withImportSnippet: [withImportSnippet],
-        withExportSnippet: [withExportSnippet],
-        formatedsnippet: [formatedsnippet],
-        fileSnippet: [fileSnippet],
-        relativeFilePath: [relativeFilePath]
       }
     },
     options: { }

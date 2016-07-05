@@ -1,10 +1,10 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var addDeclaration = require('../../../lib/add-declaration')
+const assert = require('chai').assert
+const addDeclaration = require('../../../../../lib/plugins/main/process-each-declaration-snippet')
 
 describe('add-declaration', function () {
   it('should add declaration', function () {
-    var component = {
+    const component = {
       componentName: 'ComponentA',
       jsxSnippet: '<div></div>'
     }

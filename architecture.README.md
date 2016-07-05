@@ -38,7 +38,7 @@ in the plugin object to apply to the data.
     components: {
       [componentName]: {
         fromPath: [fromPath],
-        isPath: [isPath],
+        pathName: [pathName],
         componentName: [componentName],
         htmlSnippet: [htmlSnippet]
       }
@@ -53,7 +53,7 @@ in the plugin object to apply to the data.
     components: {
       [componentName]: {
         fromPath: [fromPath],
-        isPath: [isPath],
+        pathName: [pathName],
         componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet]
@@ -69,7 +69,7 @@ in the plugin object to apply to the data.
     components: {
       [componentName]: {
         fromPath: [fromPath],
-        isPath: [isPath],
+        pathName: [pathName],
         componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
@@ -86,7 +86,7 @@ in the plugin object to apply to the data.
     components: {
       [componentName]: {
         fromPath: [fromPath],
-        isPath: [isPath],
+        pathName: [pathName],
         componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
@@ -104,7 +104,7 @@ in the plugin object to apply to the data.
     components: {
       [componentName]: {
         fromPath: [fromPath],
-        isPath: [isPath],
+        pathName: [pathName],
         componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
@@ -123,7 +123,7 @@ in the plugin object to apply to the data.
     components: {
       [componentName]: {
         fromPath: [fromPath],
-        isPath: [isPath],
+        pathName: [pathName],
         componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],

@@ -35,8 +35,8 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Stack indexKey="path" activeLayerIndex={this.props.path}>
-          <Login index="login" />
+        <Stack indexKey='path' activeLayerIndex={this.props.path}>
+          <Login index='login' />
         </Stack>
       </Provider>
       );
@@ -47,7 +47,7 @@ class App extends React.Component {
 export default App;
 `
 
-    const components = reacterminator({type: 'string', content: content})
+    const components = reacterminator({type: 'string', content})
 
     const LoginActual = components.Login.formattedFileSnippet
     assert.deepEqual(LoginActual, LoginExpected)
@@ -72,8 +72,8 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Stack indexKey="path" activeLayerIndex={this.props.path}>
-          <Index index="" />
+        <Stack indexKey='path' activeLayerIndex={this.props.path}>
+          <Index index='' />
         </Stack>
       </Provider>
       );

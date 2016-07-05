@@ -6,7 +6,7 @@ const generate = require('babel-generator').default
 
 const defaultComponent = {
   componentName: 'User',
-  isPath: 'true',
+  pathName: 'true',
   plugins: {
     redux: {}
   }

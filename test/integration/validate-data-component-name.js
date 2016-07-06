@@ -2,7 +2,7 @@
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
-describe('reacterminator', function () {
+describe('validate-data-component-name', function () {
   it('should throw an error if the data-component-name value is invalid', function () {
     assert.throws(
      function () {

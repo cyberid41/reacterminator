@@ -14,7 +14,7 @@ describe('change tags to component names', function () {
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<div><ComponentA  /></div>;'
+      '<div><ComponentA data-component-name="ComponentA" /></div>;'
     )
   })
 })

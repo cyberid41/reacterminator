@@ -1,50 +1,55 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var reacterminator = require('../../lib/index')
+const assert = require('chai').assert
+const reacterminator = require('../../lib/index')
 
-describe('reacterminator', function () {
+describe('nested-components', function () {
   it('should generate two nested components', function () {
-    var content = `\
+    const content = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB">
   </div>
 </div>`
 
-    var ComponentA = `\
+    const ComponentA = `\
 import React from 'react';
 import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
   render() {
     return (
-      <div> <ComponentB ></ComponentB> </div>
+      <div>
+        <ComponentB></ComponentB>
+      </div>
       );
   }
-};
+}
+;
 
 export default ComponentA;\n`
 
-    var ComponentB = `\
+    const ComponentB = `\
 import React from 'react';
 
 class ComponentB extends React.Component {
   render() {
     return (
-      <div> </div>
+      <div>
+      </div>
       );
   }
-};
+}
+;
 
 export default ComponentB;\n`
 
-    var components = reacterminator({type: 'string', content: content})
+    const components = reacterminator({type: 'string', content})
 
-    assert.deepEqual(components.ComponentA.fileSnippet, ComponentA)
-    assert.deepEqual(components.ComponentB.fileSnippet, ComponentB)
+    assert.deepEqual(components.ComponentA.formattedFileSnippet, ComponentA)
+    assert.deepEqual(components.ComponentB.formattedFileSnippet, ComponentB)
   })
 
   it('should generate three nested components', function () {
-    var content = `\
+    const content = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB">
     <div data-component-name="ComponentC">
@@ -52,51 +57,59 @@ export default ComponentB;\n`
   </div>
 </div>`
 
-    var ComponentA = `\
+    const ComponentA = `\
 import React from 'react';
 import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
   render() {
     return (
-      <div> <ComponentB ></ComponentB> </div>
+      <div>
+        <ComponentB></ComponentB>
+      </div>
       );
   }
-};
+}
+;
 
 export default ComponentA;\n`
 
-    var ComponentB = `\
+    const ComponentB = `\
 import React from 'react';
 import ComponentC from './ComponentC';
 
 class ComponentB extends React.Component {
   render() {
     return (
-      <div> <ComponentC ></ComponentC> </div>
+      <div>
+        <ComponentC></ComponentC>
+      </div>
       );
   }
-};
+}
+;
 
 export default ComponentB;\n`
 
-    var ComponentC = `\
+    const ComponentC = `\
 import React from 'react';
 
 class ComponentC extends React.Component {
   render() {
     return (
-      <div> </div>
+      <div>
+      </div>
       );
   }
-};
+}
+;
 
 export default ComponentC;\n`
 
-    var components = reacterminator({type: 'string', content: content})
+    const components = reacterminator({type: 'string', content})
 
-    assert.deepEqual(components.ComponentA.fileSnippet, ComponentA)
-    assert.deepEqual(components.ComponentB.fileSnippet, ComponentB)
-    assert.deepEqual(components.ComponentC.fileSnippet, ComponentC)
+    assert.deepEqual(components.ComponentA.formattedFileSnippet, ComponentA)
+    assert.deepEqual(components.ComponentB.formattedFileSnippet, ComponentB)
+    assert.deepEqual(components.ComponentC.formattedFileSnippet, ComponentC)
   })
 })

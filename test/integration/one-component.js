@@ -1,34 +1,36 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var reacterminator = require('../../lib/index')
+const assert = require('chai').assert
+const reacterminator = require('../../lib/index')
 
-describe('reacterminator', function () {
+describe('one-component', function () {
   it('should generate one component from one div', function () {
-    var content = `\
+    const content = `\
 <div data-component-name="ComponentA">
 </div>`
 
-    var ComponentA = `\
+    const ComponentA = `\
 import React from 'react';
 
 class ComponentA extends React.Component {
   render() {
     return (
-      <div> </div>
+      <div>
+      </div>
       );
   }
-};
+}
+;
 
 export default ComponentA;\n`
 
     assert.deepEqual(
-      reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,
+      reacterminator({type: 'string', content}).ComponentA.formattedFileSnippet,
       ComponentA
     )
   })
 
   it('should generate one component from an html document', function () {
-    var content = `\
+    const content = `\
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,21 +44,23 @@ export default ComponentA;\n`
   </body>
 </html>`
 
-    var ComponentA = `\
+    const ComponentA = `\
 import React from 'react';
 
 class ComponentA extends React.Component {
   render() {
     return (
-      <div> </div>
+      <div>
+      </div>
       );
   }
-};
+}
+;
 
 export default ComponentA;\n`
 
     assert.deepEqual(
-      reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,
+      reacterminator({type: 'string', content}).ComponentA.formattedFileSnippet,
       ComponentA
     )
   })

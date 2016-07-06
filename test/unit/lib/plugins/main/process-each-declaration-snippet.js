@@ -2,7 +2,7 @@
 const assert = require('chai').assert
 const addDeclaration = require('../../../../../lib/plugins/main/process-each-declaration-snippet')
 
-describe('add-declaration', function () {
+describe('plugins/main/process-each-declaration-snippet.js', function () {
   it('should add declaration', function () {
     const component = {
       componentName: 'ComponentA',
@@ -18,7 +18,7 @@ class ComponentA extends React.Component {
       <div></div>
       );
   }
-};\n`
+};`
     )
   })
 })

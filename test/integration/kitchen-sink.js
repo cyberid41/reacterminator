@@ -54,7 +54,8 @@ class Header extends React.Component {
       </header>
       );
   }
-}\n;
+}
+;
 
 export default Header;\n`
 
@@ -69,23 +70,24 @@ class ListItem extends React.Component {
       </div>
       );
   }
-}\n;
+}
+;
 
 export default ListItem;\n`
 
     const expectedCustomRoute = `\
 import React from 'react';
-import { Route } from 'react-router';
 
 class CustomRoute extends React.Component {
   render() {
     return (
-      <Route>
+      <Route data-component-imports="import {Route} from 'react-router'">
         I am a &nbsp route
       </Route>
       );
   }
-}\n;
+}
+;
 
 export default CustomRoute;\n`
 

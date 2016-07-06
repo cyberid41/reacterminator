@@ -59,6 +59,7 @@ class ReduxExample extends React.Component {
   }
 }
 ;
+
 const ReduxExampleWithRedux = reduxConnect(
   (state) => ({
     'state.reduxExample.name': state.reduxExample.name,

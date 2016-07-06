@@ -16,7 +16,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
   it('should add value and onChange to input', function () {
     const ast = parse('<input id="name" />')
     const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(state, ['state.user.name'])
@@ -30,7 +30,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
   it('should add value and onChange to textarea', function () {
     const ast = parse('<textarea id="name" />')
     const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(state, ['state.user.name'])
@@ -44,7 +44,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
   it('should add value and onChange to input for email', function () {
     const ast = parse('<input id="email" type="email" />')
     const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(state, ['state.user.email'])
@@ -57,8 +57,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 
   it('should add onClick to button', function () {
     const ast = parse('<button id="delete" />')
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, ['action.user.clickDelete'])
@@ -70,8 +70,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 
   it('should add onSubmit to form', function () {
     const ast = parse('<form id="add-user" />')
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, ['action.user.submitAddUser'])
@@ -83,8 +83,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 
   it('should not add any props to a div', function () {
     const ast = parse('<div id="add-user" />')
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, [])
@@ -96,8 +96,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 
   it('should add onClick to input[type=submit]', function () {
     const ast = parse('<input id="name" type="submit" />')
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, ['action.user.clickName'])
@@ -109,8 +109,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 
   it('should add onClick to input[type=button]', function () {
     const ast = parse('<input id="name" type="button" />')
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, ['action.user.clickName'])
@@ -122,8 +122,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 
   it('should add onChange and checked to input[type=radio]', function () {
     const ast = parse('<input id="name" type="radio" />')
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, ['action.user.changeName'])
@@ -135,8 +135,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 
   it('should add onChange and checked to input[type=checkbox]', function () {
     const ast = parse('<input id="name" type="checkbox" />')
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, ['action.user.toggleName'])
@@ -154,8 +154,8 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
   <option value="value3">Value 3</option>
 </select>
 `)
-    const { plugins: { redux: {state, action} } } = processEachJsxSnippet({
-      component: Object.assign({ast}, defaultComponent),
+    const { plugins: { redux: {action} } } = processEachJsxSnippet({
+      component: Object.assign({ast}, defaultComponent)
     }).component
 
     assert.deepEqual(action, ['action.user.selectUser'])

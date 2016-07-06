@@ -1,8 +1,8 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var parse = require('../../../../../lib/helpers/parse')
-var generate = require('babel-generator').default
-var tagsToComponentNames = require('../../../../../lib/plugins/tags-to-component-names/process-each-jsx-snippet')
+const assert = require('chai').assert
+const parse = require('../../../../../lib/helpers/parse')
+const generate = require('babel-generator').default
+const tagsToComponentNames = require('../../../../../lib/plugins/tags-to-component-names/process-each-jsx-snippet')
 
 describe('change tags to component names', function () {
   it('should change tags to component names', function () {

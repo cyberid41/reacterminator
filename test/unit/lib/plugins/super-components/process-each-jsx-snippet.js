@@ -2,150 +2,117 @@
 const assert = require('chai').assert
 const parse = require('../../../../../lib/helpers/parse')
 const generate = require('babel-generator').default
-const changeLinksForParamStore = require('../../../../../lib/plugins/super-components/process-each-jsx-snippet')
+const processEachJsxSnippet = require('../../../../../lib/plugins/super-components/process-each-jsx-snippet')
 
-describe('change links for param store', function () {
+describe('lib/plugins/super-components/process-each-jsx-snippet', function () {
   it('should change anchor tag', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="directory.html">This is a link</a>')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a href="directory.html">This is a link</a>',
       '<Link href="directory.html" params={{ path: \'directory\' }}>This is a link</Link>;'
     )
   })
 
   it('should not change anchor tag starts with #', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="#to-the-moon"/>')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a href="#to-the-moon"/>',
       '<a href="#to-the-moon" />;'
     )
   })
 
   it('do nothing if not an anchor tag', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<div href="directory.html"/>')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<div href="directory.html"/>',
       '<div href="directory.html" />;'
     )
   })
 
   it('do nothing if does not have a href tag', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a />')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a />',
       '<a />;'
     )
   })
 
   it('should not change anchor tag when changeLinksForParamStore is false', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="directory.html"/>')},
-      options: {changeLinksForParamStore: false}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
-      '<a href="directory.html" />;'
+    compare(
+      '<a href="directory.html"/>',
+      '<a href="directory.html" />;',
+      {changeLinksForParamStore: false}
     )
   })
 
   it('should not change anchor tag with absolute url', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="http://www.google.com"/>')},
-      options: {changeLinksForParamStore: false}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a href="http://www.google.com"/>',
       '<a href="http://www.google.com" />;'
     )
   })
 
   it('should not override existing onClick event', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="http://www.google.com" onClick={() => null}/>')},
-      options: {changeLinksForParamStore: false}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a href="http://www.google.com" onClick={() => null}/>',
       '<a href="http://www.google.com" onClick={() => null} />;'
     )
   })
 
-  it('should add import ParamStore if it is not used', function () {
-    const { component: { imports } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="#"/>')},
-      options: {changeLinksForParamStore: false}
-    })
-
-    assert.deepEqual(imports, undefined)
-  })
-
-  it('should add import ParamStore if it is used', function () {
-    const { component: { imports } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="user"/>')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      imports,
-      'import {Link} from \'param-store\';'
-    )
-  })
-
   it('should not change tel', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="tel:918"/>')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a href="tel:918" />;',
       '<a href="tel:918" />;'
     )
   })
 
   it('should not change mailto', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="mailto:918"/>')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a href="mailto:918" />;',
       '<a href="mailto:918" />;'
     )
   })
 
   it('should change #back to history back on click', function () {
-    const { component: { ast } } = changeLinksForParamStore({
-      component: {ast: parse('<a href="#back"/>')},
-      options: {changeLinksForParamStore: true}
-    })
-
-    assert.deepEqual(
-      generate(ast, {}, '').code,
+    compare(
+      '<a href="#back"/>',
       `\
 <a href="#back" onClick={e => {
   e.preventDefault();window.history.back();
 }} />;`
     )
   })
+
+  it('should add import needParamStore if it is used', function () {
+    checkNeedParamStore(
+      '<a href="user"/>',
+      true
+    )
+  })
+
+  it('should not add import needParamStore if it is not used', function () {
+    checkNeedParamStore(
+      '<a href="#"/>',
+      undefined,
+      {changeLinksForParamStore: false}
+    )
+  })
 })
+
+function compare (before, after, options) {
+  const { component: { ast } } = processEachJsxSnippet({
+    component: {ast: parse(before), plugins: {'super-components': {}}},
+    options: options || {changeLinksForParamStore: true}
+  })
+
+  const { code } = generate(ast, {}, '')
+
+  assert.deepEqual(code, after)
+}
+
+function checkNeedParamStore (code, expectedNeedParamStore, options) {
+  const { component: { plugins } } = processEachJsxSnippet({
+    component: {ast: parse(code), plugins: {'super-components': {}}},
+    options: {changeLinksForParamStore: true}
+  })
+
+  const { needParamStore } = plugins['super-components']
+
+  assert.deepEqual(needParamStore, expectedNeedParamStore)
+}

@@ -61,7 +61,6 @@ describe('lib/plugins/redux/process-each-exports', function () {
   it('should not wrap component if there is no state or action', function () {
     const { snippet } = getLastExport({})
 
-
     assert.deepEqual(snippet, '')
   })
 })
@@ -74,7 +73,7 @@ function getLastExport (redux) {
         suffix: 'ComponentA',
         snippet: ''
       }]
-    },
+    }
   })
 
   return _.last(exports)

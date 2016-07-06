@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
-const htmlToHtmlSnippets = require('../../../lib/html-to-html-snippets')
+const htmlFileToHtmlSnippets = require('../../../lib/html-file-to-html-snippets')
 
 describe('html-to-html-snippets', function () {
   it('should export a function', function () {
-    assert.typeOf(htmlToHtmlSnippets, 'Function')
+    assert.typeOf(htmlFileToHtmlSnippets, 'Function')
   })
 
   it('should output one component', function () {
@@ -13,7 +13,7 @@ describe('html-to-html-snippets', function () {
 </div>`
 
     assert.equal(
-      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
+      htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
       '<div> </div>'
     )
   })
@@ -26,11 +26,11 @@ describe('html-to-html-snippets', function () {
 </div>`
 
     assert.equal(
-      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
+      htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
       '<div> <div data-component-name="ComponentB"> </div> </div>'
     )
     assert.equal(
-      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentB.htmlSnippet,
+      htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentB.htmlSnippet,
       '<div> </div>'
     )
   })
@@ -42,7 +42,7 @@ describe('html-to-html-snippets', function () {
 
     assert.throws(
       function () {
-        htmlToHtmlSnippets({htmlFile: {fileContent}})
+        htmlFileToHtmlSnippets({htmlFile: {fileContent}})
       },
       /this component does not have a name/
     )
@@ -54,7 +54,7 @@ describe('html-to-html-snippets', function () {
   <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </div>`
 
-    const outputComponent = htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
+    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedComments, ['<!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->'])
@@ -66,7 +66,7 @@ describe('html-to-html-snippets', function () {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>
 </div>`
 
-    const outputComponent = htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
+    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedScriptTags, ['<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>'])
@@ -78,7 +78,7 @@ describe('html-to-html-snippets', function () {
 <style> .directory-info { vertical-align: middle; } </style>
 </div>`
 
-    const outputComponent = htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
+    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
 
     assert.deepEqual(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedStyleTags, ['<style> .directory-info { vertical-align: middle; } </style>'])
@@ -87,7 +87,7 @@ describe('html-to-html-snippets', function () {
   it('should output file component based on filename', function () {
     const fileContent = '<body></body>'
 
-    const usersComponent = htmlToHtmlSnippets({
+    const usersComponent = htmlFileToHtmlSnippets({
       htmlFile: {fileContent, fileName: 'users'},
       options: {fileToComponent: true}
     }).Users

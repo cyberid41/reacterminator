@@ -8,7 +8,7 @@ describe('lib/plugins/redux/process-each-imports', function () {
       component: {
         plugins: {redux: {state: ['stateA']}},
         imports: []
-      },
+      }
     })
 
     assert.deepEqual(
@@ -24,7 +24,7 @@ describe('lib/plugins/redux/process-each-imports', function () {
       component: {
         plugins: {redux: {action: ['actionA']}},
         imports: []
-      },
+      }
     })
 
     assert.deepEqual(
@@ -41,7 +41,7 @@ describe('lib/plugins/redux/process-each-imports', function () {
       component: {
         plugins: {redux: {}},
         imports: []
-      },
+      }
     })
 
     assert.deepEqual(

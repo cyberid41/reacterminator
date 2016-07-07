@@ -21,7 +21,7 @@
 [js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [js-standard-style-url]:   http://standardjs.com/
 
-## Node >= 6.1.0
+## Node >= 6.0.0
 
 ## Usage
 

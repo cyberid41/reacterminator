@@ -43,7 +43,7 @@
     "ignore": [
       "/coverage",
       "/doc",
-      "/lib/plugins/redux/process-all-formatted-snippets/templates"
+      "/lib/plugins/redux/process-after-all-formatted-snippets/templates"
     ]
   },
   "dependencies": {

@@ -42,10 +42,3 @@ const getAdditional = ({ type, path, baseFiles, custom }) => {
 export default {
   getAdditional,
 };
-
-
-
-
-
-
-

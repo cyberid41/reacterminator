@@ -1,7 +1,5 @@
-node_modules
-coverage
+node_modules/
+coverage/
 npm-debug.log
-doc
-components
-reacterminator
+reacterminator/
 .coveralls.yml

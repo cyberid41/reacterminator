@@ -309,8 +309,8 @@ export default (state = {}, action) => {
     default:
       return combineReducers({
 isGoing,
-name,
-phoneNumber
+  name,
+  phoneNumber
       })(state, action);
   }
 }

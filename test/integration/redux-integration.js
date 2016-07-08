@@ -179,10 +179,27 @@ export default customize(actionTypeConstants, actionTypeConstants);
       `\
 /* eslint-disable */
 import reduxExample from './redux-example/index';
+import custom from '../../custom/index';
+import helpers from '../helpers/index';
 
-export default {
-reduxExample
-}
+const baseActionTypeConstants = {
+  reduxExample
+};
+
+const additionalActionTypeConstants = helpers.getAdditional({
+  type: 'action-type-constants',
+  path: '',
+  baseFiles: [
+    'reduxExample',
+  ],
+  custom,
+});
+
+const actionTypeConstants  = Object.assign(baseActionTypeConstants, additionalActionTypeConstants);
+
+const customize = custom['action-type-constants/index'] || ((x) => x)
+
+export default customize(actionTypeConstants, actionTypeConstants);
 `
     )
 
@@ -191,16 +208,21 @@ reduxExample
     fs.readFileSync('./reacterminator/action-creators/redux-example/change-name.js', 'utf8'),
     `\
 /* eslint-disable */
+import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 
-export default function changeName(event) {
+const actionCreator = function changeName(event) {
   event.preventDefault();
 
   return {
     type: actionTypeConstants.reduxExample.changeName,
-    value: event.target.value
+    value: event.target.value,
   };
 }
+
+const customize = custom['action-creators/redux-example/change-name'] || ((x) => x);
+
+export default customize(actionCreator, { actionTypeConstants });
 `
     )
 
@@ -208,14 +230,20 @@ export default function changeName(event) {
     fs.readFileSync('./reacterminator/action-creators/redux-example/toggle-is-going.js', 'utf8'),
     `\
 /* eslint-disable */
+import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 
-export default function toggleIsGoing(event) {
+const actionCreator = function toggleIsGoing(event) {
+
   return {
     type: actionTypeConstants.reduxExample.toggleIsGoing,
-    value: event.target.value
+    value: event.target.value,
   };
 }
+
+const customize = custom['action-creators/redux-example/toggle-is-going'] || ((x) => x);
+
+export default customize(actionCreator, { actionTypeConstants });
 `
     )
 

@@ -118,7 +118,13 @@ export default createStore(reducers, applyMiddleware(thunk));
       fs.readFileSync('./reacterminator/action-type-constants/redux-example/change-name.js', 'utf8'),
       `\
 /* eslint-disable */
-export default 'REDUX_EXAMPLE_CHANGE_NAME';
+import custom from '../../../custom/index';
+
+const customize = custom['redux-example/change-name'] || ((x) => x);
+
+const actionTypeConstant = 'REDUX_EXAMPLE_CHANGE_NAME';
+
+export default customize(actionTypeConstant);
 `
     )
 

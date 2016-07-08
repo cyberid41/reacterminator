@@ -255,7 +255,7 @@ export default customize(actionCreator, { actionTypeConstants });
 import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 
-const reducer = name(state = '', action) => {
+const reducer = (state = '', action) => {
   switch (action.type) {
     case actionTypeConstants.reduxExample.changeName:
       return action.value;
@@ -274,9 +274,10 @@ export default customize(reducer, { actionTypeConstants });
       fs.readFileSync('./reacterminator/reducers/redux-example/is-going.js', 'utf8'),
       `\
 /* eslint-disable */
+import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 
-export default function isGoing(state = false, action) {
+const reducer = (state = false, action) => {
   switch (action.type) {
     case actionTypeConstants.reduxExample.toggleIsGoing:
       return !state;
@@ -284,6 +285,10 @@ export default function isGoing(state = false, action) {
       return state;
   }
 }
+
+const customize = custom['reducers/redux-example/is-going'] || ((x) => x);
+
+export default customize(reducer, { actionTypeConstants });
 `
     )
 

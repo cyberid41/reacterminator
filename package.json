@@ -57,11 +57,7 @@
     "esformatter-jsx": "^7.0.1",
     "esformatter-quotes": "^1.1.0",
     "esformatter-semicolons": "^1.1.2",
-    "eslint": "^2.9.0",
-    "eslint-config-airbnb": "8.0.0",
-    "eslint-plugin-import": "^1.5.0",
-    "eslint-plugin-jsx-a11y": "^1.0.2",
-    "eslint-plugin-react": "^5.0.1",
+    "eslint-config-poetic": "^1.0.0",
     "glob": "^7.0.5",
     "lodash": "^4.13.1",
     "shelljs": "^0.7.0"

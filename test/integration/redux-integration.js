@@ -252,9 +252,10 @@ export default customize(actionCreator, { actionTypeConstants });
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
       `\
 /* eslint-disable */
+import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 
-export default function name(state = '', action) {
+const reducer = name(state = '', action) => {
   switch (action.type) {
     case actionTypeConstants.reduxExample.changeName:
       return action.value;
@@ -262,6 +263,10 @@ export default function name(state = '', action) {
       return state;
   }
 }
+
+const customize = custom['reducers/redux-example/name'] || ((x) => x);
+
+export default customize(reducer, { actionTypeConstants });
 `
     )
 

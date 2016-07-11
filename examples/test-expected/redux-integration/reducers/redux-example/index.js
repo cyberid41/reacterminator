@@ -1,20 +1,20 @@
 /* eslint-disable */
-import { combineReducers } from 'redux';
 import isGoing from './is-going';
 import name from './name';
 import phoneNumber from './phone-number';
+import { combineReducers } from 'redux';
 import custom from '../../../custom/index';
 import helpers from '../../helpers/index';
 
 const baseReducers = {
   isGoing,
   name,
-  phoneNumber,
+  phoneNumber
 };
 
 const additionalReducers = helpers.getAdditional({
   type: 'reducers',
-  path: 'example-reduces',
+  path: 'redux-example',
   baseFiles: [
     'isGoing',
     'name',
@@ -36,4 +36,4 @@ const reducer = (state, action) => {
 
 const customize = custom['reducers/redux-example/index'] || ((x) => x);
 
-export default customize(reducer, reducers)
+export default customize(reducer, reducers);

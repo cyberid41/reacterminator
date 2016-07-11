@@ -25,7 +25,7 @@ function processFile(filePath) {
 }
 
 describe('redux-integration', () => {
-  beforeEach(function () {
+  beforeEach(() => {
     shell.rm('-rf', './reacterminator');
   });
 

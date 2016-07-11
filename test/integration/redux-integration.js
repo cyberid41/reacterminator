@@ -41,6 +41,7 @@ describe('redux-integration', () => {
       'action-type-constants/index.js',
       'action-creators/redux-example/change-name.js',
       'action-creators/redux-example/toggle-is-going.js',
+      'action-creators/redux-example/index.js',
       'reducers/redux-example/name.js',
       'reducers/redux-example/is-going.js',
       'reducers/redux-example/index.js',

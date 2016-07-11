@@ -42,6 +42,7 @@ describe('redux-integration', () => {
       'action-creators/redux-example/change-name.js',
       'action-creators/redux-example/toggle-is-going.js',
       'action-creators/redux-example/index.js',
+      'action-creators/index.js',
       'reducers/redux-example/name.js',
       'reducers/redux-example/is-going.js',
       'reducers/redux-example/index.js',

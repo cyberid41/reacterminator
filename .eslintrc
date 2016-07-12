@@ -1,3 +1,6 @@
 {
-  "extends": "poetic"
+  "extends": "poetic",
+  "rules": {
+    "no-param-reassign": ["error", { "props": false }]
+  }
 }

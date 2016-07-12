@@ -7,8 +7,8 @@
   "main": "lib/index.js",
   "bin": "bin/reacterminator.js",
   "scripts": {
-    "fix": "eslint --fix lib/**",
-    "lint": "eslint lib/**",
+    "lint": "./node_modules/.bin/eslint lib/**",
+    "fix": "./node_modules/.bin/eslint lib/** --fix",
     "test": "npm run lint && istanbul cover _mocha && coveralls < coverage/lcov.info",
     "watch": "rm -rf ./reacterminator && mocha --watch",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"

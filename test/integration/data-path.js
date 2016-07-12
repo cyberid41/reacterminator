@@ -1,12 +1,12 @@
 /* eslint-env mocha */
-const assert = require('chai').assert
-const reacterminator = require('../../lib/index')
+const assert = require('chai').assert;
+const reacterminator = require('../../lib/index');
 
 describe('data-path', function () {
   it('should create App component', function () {
     const content = `\
 <div data-component-name="Login" data-component-path="login">
-</div>`
+</div>`;
 
     const LoginExpected = `\
 import React from 'react';
@@ -22,7 +22,7 @@ class Login extends React.Component {
 ;
 
 export default Login;
-`
+`;
 
     const AppExpected = `\
 import React from 'react';
@@ -30,6 +30,7 @@ import Login from './Login';
 import { Stack } from 'react-super-components';
 import { Provider } from 'react-redux';
 import store from '../store';
+import custom from '../../custom/index';
 
 class App extends React.Component {
   render() {
@@ -43,23 +44,30 @@ class App extends React.Component {
   }
 }
 ;
+let CustomApp = App;
 
-export default App;
-`
+if (custom['components/App']) {
+  CustomApp = custom['components/App'](App, {
+    Login,
+  });
+}
 
-    const components = reacterminator({type: 'string', content})
+export default CustomApp;
+`;
 
-    const LoginActual = components.Login.formattedFileSnippet
-    assert.deepEqual(LoginActual, LoginExpected)
+    const components = reacterminator({ type: 'string', content });
 
-    const AppActual = components.App.formattedFileSnippet
-    assert.deepEqual(AppActual, AppExpected)
-  })
+    const LoginActual = components.Login.formattedFileSnippet;
+    assert.deepEqual(LoginActual, LoginExpected);
+
+    const AppActual = components.App.formattedFileSnippet;
+    assert.deepEqual(AppActual, AppExpected);
+  });
 
   it('should create Index component with \'\' as path', function () {
     const content = `\
 <div data-component-name="Index" data-component-path="index">
-</div>`
+</div>`;
 
     const AppExpected = `\
 import React from 'react';
@@ -67,6 +75,7 @@ import Index from './Index';
 import { Stack } from 'react-super-components';
 import { Provider } from 'react-redux';
 import store from '../store';
+import custom from '../../custom/index';
 
 class App extends React.Component {
   render() {
@@ -80,13 +89,20 @@ class App extends React.Component {
   }
 }
 ;
+let CustomApp = App;
 
-export default App;
-`
+if (custom['components/App']) {
+  CustomApp = custom['components/App'](App, {
+    Index,
+  });
+}
 
-    const components = reacterminator({type: 'string', content})
+export default CustomApp;
+`;
 
-    const AppActual = components.App.formattedFileSnippet
-    assert.deepEqual(AppActual, AppExpected)
-  })
-})
+    const components = reacterminator({ type: 'string', content });
+
+    const AppActual = components.App.formattedFileSnippet;
+    assert.deepEqual(AppActual, AppExpected);
+  });
+});

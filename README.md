@@ -29,7 +29,7 @@
 reacterminator converts htmls into react components in es6 syntax.
 
 You need to annoate the html tags with several simple
-[data attributes](#data-attributes) that reacterminator recognize.
+[data attributes](data-attributes.README.md) that reacterminator recognize.
 
 For example, you can add a `data-component-name` attribute to let
 reacterminator know that it is a react component:
@@ -60,97 +60,7 @@ export default class Unicorn extends React.Component {
 Please check the [kitchen sink test](test/integration/kitchen-sink.js)
 for a comprehensive example of what reacterminator is capable of.
 
-### Data Attributes
-- data-component-name
-
-  This attribute tells reacterminator that the html is a react component.
-
-- data-component-props
-
-  FROM:
-  ```
-  <div data-component-name="ComponentA" data-component-props="isBoolean lastName={'Poetic'}"/>
-  ```
-
-  TO:
-  ```
-  <ComponentA isBoolean lastName={'Poetic'}/>
-  ```
-
-- data-component-primary
-
-  FROM:
-  ```
-  <div data-component-name="Unicorn"/>
-  <div data-component-name="Unicorn" data-component-primary="true" class="primary" />
-  ```
-
-  TO:
-  ```
-  <div className="primary" />
-  ```
-
-- data-component-wrapper
-
-  FROM:
-  ```
-  <div data-component-wrapper="ComponentA"/>
-  ```
-
-  TO:
-  `<ComonentA/>`
-
-- data-component-imports
-
-  FROM:
-  ```
-  <div data-component-imports="import {Router} from 'react-router'; import _ from 'lodash';"/>
-  ```
-
-  TO:
-  ```
-  import {Router} from 'react-router';
-  import _ from 'lodash';
-  ```
-
-- data-component-value
-
-  FROM:
-  ```
-  <div data-component-value="{firstName}">Poetic</div>
-  ```
-
-  TO:
-  ```
-  <div>{firstName}</div>
-  ```
-
-- data-component-path
-
-  FROM:
-  ```
-  <div
-    data-component-name="Login"
-    data-component-path="login">
-  </div>
-  ```
-
-  TO:
-  ```
-  // App.jsx
-  import React from 'react';
-  import LoginContainer from './LoginContainer';
-
-  export default class App extends React.Component {
-    render () {
-      return (
-        <div>
-          <LoginContainer/>
-        </div>
-      )
-    }
-  }
-  ```
+### [DATA ATTRIBUTES](data-attributes.README.md)
 
 ### [REDUX INTEGRATION](redux.README.md)
 
@@ -236,8 +146,6 @@ console.log(components.Unicorn.formattedFileSnippet)
 
 ## Development
 
-### [Source Documents](http://poetic.github.io/reacterminator/doc)
-
 ### Workflow
 - write spec in read me
 - write tests
@@ -263,5 +171,4 @@ npm run test
 ### Resouces
 - [cheerio](https://github.com/cheeriojs/cheerio)
 - [babel](https://github.com/babel/babel)
-
-### [Trello](https://trello.com/b/n7iRAJ7M/reacterminator)
+- [Trello](https://trello.com/b/n7iRAJ7M/reacterminator)

@@ -8,7 +8,6 @@
 [![npm][npm-image]][npm-url]
 [![semantic-release][semantic-release-image]][semantic-release-url]
 [![coverall][coverall-image]][coverall-url]
-[![js-standard-style][js-standard-style-image]][js-standard-style-url]
 
 [travis-image]:            https://img.shields.io/travis/poetic/reacterminator.svg?branch=master
 [travis-url]:              https://travis-ci.org/poetic/reacterminator
@@ -18,8 +17,6 @@
 [semantic-release-url]:    https://github.com/semantic-release/semantic-release
 [coverall-image]:          https://img.shields.io/coveralls/poetic/reacterminator.svg
 [coverall-url]:            https://coveralls.io/github/poetic/reacterminator
-[js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-[js-standard-style-url]:   http://standardjs.com/
 
 ## Node >= 6.0.0
 

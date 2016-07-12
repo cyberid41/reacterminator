@@ -7,10 +7,9 @@
   "main": "lib/index.js",
   "bin": "bin/reacterminator.js",
   "scripts": {
-    "test": "istanbul cover _mocha && coveralls < coverage/lcov.info",
+    "lint": "eslint lib/**",
+    "test": "npm run lint && istanbul cover _mocha && coveralls < coverage/lcov.info",
     "watch": "rm -rf ./reacterminator && mocha --watch",
-    "cover": "istanbul cover _mocha",
-    "doc": "jsdoc lib -d doc",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -31,20 +30,12 @@
   },
   "homepage": "https://github.com/poetic/reacterminator",
   "devDependencies": {
+    "eslint-config-poetic": "github:poetic/eslint-config-poetic",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.4",
-    "jsdoc": "^3.4.0",
     "mocha": "^2.5.3",
-    "standard": "^7.1.2",
     "semantic-release": "^4.3.5"
-  },
-  "standard": {
-    "ignore": [
-      "/coverage",
-      "/doc",
-      "/lib/plugins/redux/process-after-all-formatted-snippets/templates"
-    ]
   },
   "dependencies": {
     "babel-generator": "^6.11.0",
@@ -57,7 +48,6 @@
     "esformatter-jsx": "^7.0.1",
     "esformatter-quotes": "^1.1.0",
     "esformatter-semicolons": "^1.1.2",
-    "eslint-config-poetic": "^1.0.0",
     "glob": "^7.0.5",
     "lodash": "^4.13.1",
     "shelljs": "^0.7.0"

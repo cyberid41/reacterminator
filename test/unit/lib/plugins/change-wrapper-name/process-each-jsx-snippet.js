@@ -14,7 +14,7 @@ describe('change wrapper name', function () {
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<ComponentA  />;'
+      '<ComponentA />;'
     )
   })
 

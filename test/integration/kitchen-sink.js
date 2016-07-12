@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-const { assert } = require('chai')
-const reacterminator = require('../../lib/index')
+const { assert } = require('chai');
+const reacterminator = require('../../lib/index');
 
 describe('kitchen-sinck', function () {
   it('should show all the functions', function () {
@@ -25,7 +25,6 @@ describe('kitchen-sinck', function () {
     <div
       data-component-props="isBoolean firstName={'Poetic'}"
       data-component-name="CustomRoute"
-      data-component-imports="import {Route} from 'react-router'"
       data-component-wrapper="Route">
       I am a &nbsp route
     </div>
@@ -44,10 +43,10 @@ import CustomRoute from './CustomRoute';
 class Header extends React.Component {
   render() {
     return (
-      <header style={{  fontSize: '18'}} className="header">
+      <header style={{ fontSize: '18' }} className='header'>
         <ListItem></ListItem>
         <ListItem></ListItem>
-        <CustomRoute isBoolean firstName={'Poetic'}></CustomRoute> <img src="logo.jpg" />
+        <CustomRoute isBoolean firstName={'Poetic'}></CustomRoute> <img src='logo.jpg' />
         <div>
           {firstName}
         </div>
@@ -65,7 +64,7 @@ import React from 'react';
 class ListItem extends React.Component {
   render() {
     return (
-      <div className="list-item">
+      <div className='list-item'>
         Primary
       </div>
       );
@@ -81,7 +80,7 @@ import React from 'react';
 class CustomRoute extends React.Component {
   render() {
     return (
-      <Route data-component-imports="import {Route} from 'react-router'">
+      <Route>
         I am a &nbsp route
       </Route>
       );
@@ -91,7 +90,7 @@ class CustomRoute extends React.Component {
 
 export default CustomRoute;\n`
 
-    const components = reacterminator({type: 'string', content: content})
+    const components = reacterminator({type: 'string', content})
 
     assert.deepEqual(components.Header.formattedFileSnippet, expectedHeader)
     assert.deepEqual(components.ListItem.formattedFileSnippet, expectedListItem)

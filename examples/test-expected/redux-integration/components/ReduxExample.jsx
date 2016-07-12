@@ -8,23 +8,23 @@ class ReduxExample extends React.Component {
   render() {
     return (
       <div>
-        <form id="email-form" name="email-form" onSubmit={this.props['action.reduxExample.submitEmailForm']}>
-          <a href="#" id="anchor-button" onClick={this.props['action.reduxExample.clickAnchorButton']} /> <a href="http://www.google.com" id="anchor-button-absolute-url" />
-          <input id="name"
-            name="name"
+        <form id='email-form' name='email-form' onSubmit={this.props['action.reduxExample.submitEmailForm']}>
+          <a href='#' id='anchor-button' onClick={this.props['action.reduxExample.clickAnchorButton']} /> <a href='http://www.google.com' id='anchor-button-absolute-url' />
+          <input id='name'
+            name='name'
             value={this.props['state.reduxExample.name']}
             onChange={this.props['action.reduxExample.changeName']} />
-          <input id="is-going"
-            type="checkbox"
-            name="is-going"
+          <input id='is-going'
+            type='checkbox'
+            name='is-going'
             checked={this.props['state.reduxExample.isGoing']}
             onChange={this.props['action.reduxExample.toggleIsGoing']} />
-          <input id="phone-number"
-            type="text"
-            name="phone-number-login"
+          <input id='phone-number'
+            type='text'
+            name='phone-number-login'
             value={this.props['state.reduxExample.phoneNumber']}
             onChange={this.props['action.reduxExample.changePhoneNumber']} />
-          <button id="single-button" onClick={this.props['action.reduxExample.clickSingleButton']} />
+          <button id='single-button' onClick={this.props['action.reduxExample.clickSingleButton']} />
           <ComponentA />
         </form>
       </div>

@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/poetic/reacterminator",
   "devDependencies": {
-    "eslint": "^2.9.0",
     "eslint-config-poetic": "^1.0.1",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",

@@ -13,7 +13,8 @@ describe('html-to-html-snippets', function () {
 </div>`
 
     assert.equal(
-      htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
+      htmlFileToHtmlSnippets({htmlFile: {fileContent}, options: {}})
+        .ComponentA.htmlSnippet,
       '<div> </div>'
     )
   })
@@ -26,11 +27,13 @@ describe('html-to-html-snippets', function () {
 </div>`
 
     assert.equal(
-      htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
+      htmlFileToHtmlSnippets({htmlFile: {fileContent}, options: {}})
+        .ComponentA.htmlSnippet,
       '<div> <div data-component-name="ComponentB"> </div> </div>'
     )
     assert.equal(
-      htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentB.htmlSnippet,
+      htmlFileToHtmlSnippets({htmlFile: {fileContent}, options: {}})
+        .ComponentB.htmlSnippet,
       '<div> </div>'
     )
   })
@@ -42,7 +45,7 @@ describe('html-to-html-snippets', function () {
 
     assert.throws(
       function () {
-        htmlFileToHtmlSnippets({htmlFile: {fileContent}})
+        htmlFileToHtmlSnippets({htmlFile: {fileContent}, options: {}})
       },
       /this component does not have a name/
     )
@@ -54,7 +57,8 @@ describe('html-to-html-snippets', function () {
   <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </div>`
 
-    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
+    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}, options: {}})
+      .ComponentA
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedComments, ['<!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->'])
@@ -66,7 +70,7 @@ describe('html-to-html-snippets', function () {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>
 </div>`
 
-    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
+    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}, options: {}}).ComponentA
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedScriptTags, ['<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>'])
@@ -78,7 +82,10 @@ describe('html-to-html-snippets', function () {
 <style> .directory-info { vertical-align: middle; } </style>
 </div>`
 
-    const outputComponent = htmlFileToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
+    const outputComponent = htmlFileToHtmlSnippets({
+      htmlFile: {fileContent},
+      options: {}
+    }).ComponentA
 
     assert.deepEqual(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedStyleTags, ['<style> .directory-info { vertical-align: middle; } </style>'])

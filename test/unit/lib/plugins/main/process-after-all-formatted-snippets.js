@@ -5,6 +5,20 @@ const assert = require('chai').assert
 const shell = require('shelljs')
 const processAfterAllFormattedSnippets = require('../../../../../lib/plugins/main/process-after-all-formatted-snippets.js')
 
+function checkFileContent (file, content) {
+  assert.deepEqual(
+    fs.readFileSync(file, 'utf-8'),
+    content
+  );
+}
+
+function matchFiles (actual, expected) {
+  assert.deepEqual(
+    fs.readFileSync(actual, 'utf-8'),
+    fs.readFileSync(expected, 'utf-8')
+  );
+}
+
 describe('lib/plugins/main/process-after-all-formatted-snippets', function () {
   beforeEach(function () {
     shell.rm('-rf', './reacterminator')
@@ -39,12 +53,14 @@ export default ComponentA;`
       }
     })
 
-    assert.deepEqual(
-      fs.readFileSync(
-        path.resolve('./reacterminator/generated/components/ComponentA.jsx'),
-        'utf-8'
-      ),
+    checkFileContent(
+      path.resolve('./reacterminator/generated/components/ComponentA.jsx'),
       '/* eslint-disable */\n' + formattedFileSnippet
+    )
+
+    matchFiles(
+      path.resolve('./reacterminator/custom/index.js'),
+      path.resolve(__dirname, '../../../../../lib/plugins/main/templates/custom/index.js')
     )
   })
 
@@ -72,11 +88,8 @@ class ComponentA extends React.Component {
       }
     })
 
-    assert.deepEqual(
-      fs.readFileSync(
-        path.resolve('./reacterminator/generated/components/ComponentA.jsx'),
-        'utf-8'
-      ),
+    checkFileContent(
+      path.resolve('./reacterminator/generated/components/ComponentA.jsx'),
       '/* eslint-disable */\n' + formattedFileSnippet
     )
   })

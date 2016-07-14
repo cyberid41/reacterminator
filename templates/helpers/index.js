@@ -1,8 +1,12 @@
-// TODO: remove dependency on lodash
-import _ from 'lodash';
-
-const fileNameFromPath = (path) => _.last(path.split('/'));
-const camelCase = (string) => _.camelCase(string);
+// NOTE: here we do not use lodash to reduce the dependencies of this package
+const fileNameFromPath = (path) => path.split('/').pop();
+const camelCase = (string) => (
+  string
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => (
+      index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+    ))
+    .replace(/\s+/g, '');
+);
 
 const getAdditional = ({ type, path, baseFiles, custom }) => {
   const basePaths = baseFiles.map((baseFile) => (

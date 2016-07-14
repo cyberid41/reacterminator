@@ -33,20 +33,20 @@ describe('redux-integration', () => {
     processFile('./examples/test/redux-example.html');
 
     const filePaths = [
-      'components/ReduxExample.jsx',
-      'components/ComponentA.jsx',
-      'store.js',
-      'action-type-constants/redux-example/change-name.js',
-      'action-type-constants/redux-example/index.js',
-      'action-type-constants/index.js',
-      'action-creators/redux-example/change-name.js',
-      'action-creators/redux-example/toggle-is-going.js',
-      'action-creators/redux-example/index.js',
-      'action-creators/index.js',
-      'reducers/redux-example/name.js',
-      'reducers/redux-example/is-going.js',
-      'reducers/redux-example/index.js',
-      'reducers/index.js',
+      'generated/components/ReduxExample.jsx',
+      'generated/components/ComponentA.jsx',
+      'generated/action-type-constants/redux-example/change-name.js',
+      'generated/action-type-constants/redux-example/index.js',
+      'generated/action-type-constants/index.js',
+      'generated/action-creators/redux-example/change-name.js',
+      'generated/action-creators/redux-example/toggle-is-going.js',
+      'generated/action-creators/redux-example/index.js',
+      'generated/action-creators/index.js',
+      'generated/reducers/redux-example/name.js',
+      'generated/reducers/redux-example/is-going.js',
+      'generated/reducers/redux-example/index.js',
+      'generated/reducers/index.js',
+      'generated/store.js',
     ];
 
     filePaths.forEach(checkFile);
@@ -55,6 +55,6 @@ describe('redux-integration', () => {
   it('should not create reducer file for a path if there is no reducers to combile', () => {
     processFile('./examples/test/redux-no-reducers.html');
 
-    checkFile('reducers/redux-no-reducers/index.js');
+    checkFile('generated/reducers/redux-no-reducers/index.js');
   });
 });

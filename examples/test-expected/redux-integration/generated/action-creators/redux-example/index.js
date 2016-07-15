@@ -6,7 +6,7 @@ import clickSingleButton from './click-single-button';
 import submitEmailForm from './submit-email-form';
 import toggleIsGoing from './toggle-is-going';
 import custom from '../../../custom/index';
-import helpers from '../../helpers/index';
+import helpers from '../../helpers';
 
 const baseActionCreators = {
   changeName,

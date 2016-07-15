@@ -2,7 +2,7 @@
 import reduxExample from './redux-example/index';
 import { combineReducers } from 'redux';
 import custom from '../../custom/index';
-import helpers from '../helpers/index';
+import helpers from '../helpers';
 
 const baseReducers = {
   reduxExample

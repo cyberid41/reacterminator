@@ -3,17 +3,17 @@
 ## Summary
 
 There are two main ideas in the architecture:
-- pipline
+- pipeline
 - plugins
 
-The main program is only a pipline that apply plugins AFTER each stage.
+The main program is only a pipeline that apply plugins AFTER each stage.
 
 The main plugin runs before any plugins.
 Plugins should be as independent as possible.
-Plugins modify the data piped through and can attach pulgin specific
-data or manipulate data as however the plugin want.
+Plugins modify the data piped through and can attach plugin specific
+data or manipulate data however the plugin wants.
 
-The pipline will find a function called process\[Each|All\]\[StageName\]
+The pipeline will find a function called process\[Each|All\]\[StageName\]
 in the plugin object to apply to the data.
 
 ## Stages

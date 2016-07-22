@@ -1,6 +1,11 @@
 /* eslint-disable */
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { emitToRedux } from 'param-store';
 import reducers from './reducers/index';
 
-export default createStore(reducers, applyMiddleware(thunk));
+const store = createStore(reducers, applyMiddleware(thunk));
+
+emitToRedux(store);
+
+export default store;

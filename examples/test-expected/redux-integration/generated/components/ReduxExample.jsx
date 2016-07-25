@@ -1,8 +1,8 @@
-/* eslint-disable */
 import React from 'react';
 import ComponentA from './ComponentA';
 import { connect as reduxConnect } from 'react-redux';
 import action from '../action-creators/index';
+import custom from '../../custom/index';
 
 class ReduxExample extends React.Component {
   render() {
@@ -49,4 +49,7 @@ const ReduxExampleWithRedux = reduxConnect(
   }
 )(ReduxExample);
 
-export default ReduxExampleWithRedux;
+const customize = custom['components/ReduxExample'] || ((x) => x);
+const ReduxExampleWithReduxWithCustom = customize(ReduxExampleWithRedux);
+
+export default ReduxExampleWithReduxWithCustom;

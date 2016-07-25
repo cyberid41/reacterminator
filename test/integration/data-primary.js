@@ -12,6 +12,7 @@ describe('data-primary', function () {
 
     var ComponentAExpected = `\
 import React from 'react';
+import custom from '../../custom/index';
 
 class ComponentA extends React.Component {
   render() {
@@ -21,9 +22,14 @@ class ComponentA extends React.Component {
       </div>
       );
   }
-}\n;
+}
+;
 
-export default ComponentA;\n`
+const customize = custom['components/ComponentA'] || ((x) => x);
+const ComponentAWithCustom = customize(ComponentA);
+
+export default ComponentAWithCustom;
+`
 
     var components = reacterminator({type: 'string', content: content})
     var ComponentAActual = _.find(components, {componentName: 'ComponentA'})

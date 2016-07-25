@@ -1,4 +1,3 @@
-/* eslint-disable */
 import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 

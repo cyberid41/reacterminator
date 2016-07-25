@@ -1,4 +1,3 @@
-/* eslint-disable */
 import custom from '../../../custom/index';
 
 const customize = custom['redux-example/change-name'] || ((x) => x);

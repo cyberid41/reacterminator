@@ -55,7 +55,7 @@ export default ComponentA;`
 
     checkFileContent(
       path.resolve('./reacterminator/generated/components/ComponentA.jsx'),
-      '/* eslint-disable */\n' + formattedFileSnippet
+      formattedFileSnippet
     )
 
     matchFiles(
@@ -90,7 +90,7 @@ class ComponentA extends React.Component {
 
     checkFileContent(
       path.resolve('./reacterminator/generated/components/ComponentA.jsx'),
-      '/* eslint-disable */\n' + formattedFileSnippet
+      formattedFileSnippet
     )
   })
 })

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import isGoing from './is-going';
 import name from './name';
 import phoneNumber from './phone-number';

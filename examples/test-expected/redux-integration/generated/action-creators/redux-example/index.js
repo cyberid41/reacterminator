@@ -1,4 +1,3 @@
-/* eslint-disable */
 import changeName from './change-name';
 import changePhoneNumber from './change-phone-number';
 import clickAnchorButton from './click-anchor-button';

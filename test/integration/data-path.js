@@ -10,6 +10,7 @@ describe('data-path', function () {
 
     const LoginExpected = `\
 import React from 'react';
+import custom from '../../custom/index';
 
 class Login extends React.Component {
   render() {
@@ -21,16 +22,19 @@ class Login extends React.Component {
 }
 ;
 
-export default Login;
+const customize = custom['components/Login'] || ((x) => x);
+const LoginWithCustom = customize(Login);
+
+export default LoginWithCustom;
 `;
 
     const AppExpected = `\
 import React from 'react';
 import Login from './Login';
+import custom from '../../custom/index';
 import { Stack } from 'react-super-components';
 import { Provider } from 'react-redux';
 import store from '../store';
-import custom from '../../custom/index';
 
 class App extends React.Component {
   render() {
@@ -44,15 +48,11 @@ class App extends React.Component {
   }
 }
 ;
-let CustomApp = App;
 
-if (custom['components/App']) {
-  CustomApp = custom['components/App'](App, {
-    Login,
-  });
-}
+const customize = custom['components/App'] || ((x) => x);
+const AppWithCustom = customize(App);
 
-export default CustomApp;
+export default AppWithCustom;
 `;
 
     const components = reacterminator({ type: 'string', content });
@@ -72,10 +72,10 @@ export default CustomApp;
     const AppExpected = `\
 import React from 'react';
 import Index from './Index';
+import custom from '../../custom/index';
 import { Stack } from 'react-super-components';
 import { Provider } from 'react-redux';
 import store from '../store';
-import custom from '../../custom/index';
 
 class App extends React.Component {
   render() {
@@ -89,15 +89,11 @@ class App extends React.Component {
   }
 }
 ;
-let CustomApp = App;
 
-if (custom['components/App']) {
-  CustomApp = custom['components/App'](App, {
-    Index,
-  });
-}
+const customize = custom['components/App'] || ((x) => x);
+const AppWithCustom = customize(App);
 
-export default CustomApp;
+export default AppWithCustom;
 `;
 
     const components = reacterminator({ type: 'string', content });

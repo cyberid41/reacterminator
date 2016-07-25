@@ -1,5 +1,5 @@
-/* eslint-disable */
 import React from 'react';
+import custom from '../../custom/index';
 
 class ComponentA extends React.Component {
   render() {
@@ -10,4 +10,7 @@ class ComponentA extends React.Component {
 }
 ;
 
-export default ComponentA;
+const customize = custom['components/ComponentA'] || ((x) => x);
+const ComponentAWithCustom = customize(ComponentA);
+
+export default ComponentAWithCustom;

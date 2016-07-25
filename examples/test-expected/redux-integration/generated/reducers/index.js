@@ -1,4 +1,3 @@
-/* eslint-disable */
 import reduxExample from './redux-example/index';
 import { combineReducers } from 'redux';
 import custom from '../../custom/index';

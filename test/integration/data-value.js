@@ -1,17 +1,18 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var reacterminator = require('../../lib/index')
+const assert = require('chai').assert
+const reacterminator = require('../../lib/index')
 
 describe('data-value', function () {
   it('should replace inner html with data-component-value', function () {
-    var content = `\
+    const content = `\
 <div data-component-name="ComponentA">
   <span data-component-value="{this.props.firstName}">Chun</span>
   <span data-component-value="{this.props.lastName}">Yang</span>
 </div>`
 
-    var expectedComponentA = `\
+    const expectedComponentA = `\
 import React from 'react';
+import custom from '../../custom/index';
 
 class ComponentA extends React.Component {
   render() {
@@ -21,11 +22,16 @@ class ComponentA extends React.Component {
       </div>
       );
   }
-}\n;
+}
+;
 
-export default ComponentA;\n`
+const customize = custom['components/ComponentA'] || ((x) => x);
+const ComponentAWithCustom = customize(ComponentA);
 
-    var realComponentA = reacterminator({type: 'string', content: content})
+export default ComponentAWithCustom;
+`
+
+    const realComponentA = reacterminator({type: 'string', content: content})
       .ComponentA
       .formattedFileSnippet
 

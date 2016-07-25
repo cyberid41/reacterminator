@@ -1,4 +1,3 @@
-/* eslint-disable */
 import reduxExample from './redux-example/index';
 import custom from '../../custom/index';
 import helpers from '../helpers';

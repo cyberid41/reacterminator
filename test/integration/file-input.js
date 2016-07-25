@@ -4,7 +4,7 @@ const shell = require('shelljs')
 const assert = require('chai').assert
 const reacterminator = require('../../lib/index')
 
-describe('reacterminator with file input', function () {
+describe('integration/file-input', function () {
   beforeEach(function () {
     shell.rm('-rf', './reacterminator')
   })
@@ -26,8 +26,8 @@ describe('reacterminator with file input', function () {
     )
 
     const ComponentAExpected = `\
-/* eslint-disable */
 import React from 'react';
+import custom from '../../custom/index';
 
 class ComponentA extends React.Component {
   render() {
@@ -36,9 +36,14 @@ class ComponentA extends React.Component {
       </div>
       );
   }
-}\n;
+}
+;
 
-export default ComponentA;\n`
+const customize = custom['components/ComponentA'] || ((x) => x);
+const ComponentAWithCustom = customize(ComponentA);
+
+export default ComponentAWithCustom;
+`
 
     assert.deepEqual(ComponentAActual, ComponentAExpected)
   })

@@ -1,17 +1,21 @@
 #! /usr/bin/env node
 
-const _ = require('lodash')
 const program = require('commander')
-const reacterminator = require('../lib/index')
+const { version, description } = require('../package.json');
 
 program
-  .description('Convert annotated htmls to react component files')
-  .option('-i, --input-path <inputPath>', '(REQUIRED) specify input path, it can be a file or a folder')
-  .option('-p, --output-path [./component]', 'specify output path')
-  .option('-r, --recursive', 'find files in the input folder recursivly')
-  .option('-f, --file-to-component', 'create one component for each file, replace body with div tag')
+  .version(version)
+  .description(description)
 
-program.on('--help', function () {
+program
+  .command('convert <path>', 'convert html files into react component files.')
+  .alias('c')
+
+program
+  .command('generate <path>', 'generate custom files.')
+  .alias('g')
+
+program.on('--help', () => {
   console.log('  Examples:')
   console.log('')
   console.log('    $ reacterminator -i design.html')
@@ -23,26 +27,4 @@ program.on('--help', function () {
   console.log('')
 })
 
-if (!process.argv.slice(2).length) {
-  program.outputHelp()
-  process.exit(1)
-}
-
 program.parse(process.argv)
-
-if (!program.inputPath) {
-  throw new Error('<inputPath> is required, use -i to specify it')
-}
-
-// prepare options
-const options = _.extend(
-  {generateFiles: true},
-  _.pick(program, ['outputPath', 'recursive', 'fileToComponent'])
-)
-
-const cleanedOptions = _.omitBy(options, _.isUndefined)
-
-reacterminator(
-  {type: 'path', content: program.inputPath},
-  cleanedOptions
-)

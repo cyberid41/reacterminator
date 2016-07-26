@@ -5,7 +5,10 @@
   },
   "description": "Convert html files to react components",
   "main": "lib/index.js",
-  "bin": "bin/reacterminator.js",
+  "bin": {
+    "reacterminator": "bin/reacterminator.js",
+    "rt": "bin/stanza.js"
+  },
   "scripts": {
     "fix": "eslint --fix lib/**",
     "lint": "eslint lib/**",
@@ -43,7 +46,7 @@
     "babylon": "^6.8.2",
     "chalk": "^1.1.3",
     "cheerio": "^0.20.0",
-    "commander": "^2.9.0",
+    "commander": "git://github.com/tj/commander.js.git#c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e",
     "esformatter": "^0.9.5",
     "esformatter-eol-last": "^1.0.0",
     "esformatter-jsx": "^7.0.1",

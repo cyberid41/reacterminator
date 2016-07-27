@@ -5,7 +5,7 @@ const assert = require('chai').assert
 const generate = require('../../lib/generate/index')
 const { checkFile } = require('../helpers')
 
-describe.only('integration/generate', function () {
+describe('integration/generate', function () {
   beforeEach(function () {
     shell.rm('-rf', './reacterminator')
     shell.mkdir('-p', [

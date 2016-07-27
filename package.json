@@ -7,7 +7,7 @@
   "main": "lib/index.js",
   "bin": {
     "reacterminator": "bin/reacterminator.js",
-    "rt": "bin/stanza.js"
+    "rt": "bin/reacterminator.js"
   },
   "scripts": {
     "fix": "eslint --fix lib/**",

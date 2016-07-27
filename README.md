@@ -32,12 +32,14 @@ For example, you can add a `data-component-name` attribute to let
 reacterminator know that it is a react component:
 ```
 // file: example.html
-<div data-component-name="Unicorn"></div>
+<body>
+  <div data-component-name="Unicorn"></div>
+</body>
 ```
 
 Then let reacterminator do the chores:
 ```
-$ reacterminator -i example.html
+$ reacterminator convert example.html
 ```
 
 A file named 'Unicorn.jsx' will be generated at './components/Unicorn.jsx'
@@ -66,28 +68,34 @@ for a comprehensive example of what reacterminator is capable of.
 npm i -g reacterminator
 ```
 
+You can use `reacterminator` or `rt` for short.
+
 ```
-Usage: reacterminator [options]
+  Usage: reacterminator [options] [command]
 
-Convert annotated htmls to react component files
 
-Options:
+  Commands:
 
-  -h, --help                       output usage information
-  -i, --input-path <inputPath>     (REQUIRED) specify input path, it can be a file or a folder
-  -p, --output-path [./component]  specify output path
-  -r, --recursive                  find files in the input folder recursivly
-  -f, --file-to-component          create one component for each file, replace body with div tag
-  -R, --redux                      add redux support in the generator
+    convert|c <path>   convert html files into react component files.
+    generate|g <path>  generate custom files.
+    help [cmd]         display help for [cmd]
 
-Examples:
+  Convert html files to react components
 
-  $ reacterminator -i design.html
-  $ reacterminator -i design/
+  Options:
 
-Notes:
+    -h, --help     output usage information
+    -V, --version  output the version number
 
-  If the input is a folder, the files ends with ignore.html will be ignored.
+  Examples:
+
+    $ reacterminator c design.html
+    $ reacterminator c design/
+    $ reacterminator g components/MyCustom
+
+  Notes:
+
+    If the input is a folder, the files ends with -ignore.html will be ignored.
 ```
 
 ### NODE

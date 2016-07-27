@@ -1,12 +1,12 @@
 import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 
-const reducer = (state = false, action) => {
-  switch (action.type) {
+const reducer = (_state = false, _action) => {
+  switch (_action.type) {
     case actionTypeConstants.reduxExample.toggleIsGoing:
-      return !state;
+      return !_state;
     default:
-      return state;
+      return _state;
   }
 }
 

@@ -4,11 +4,6 @@ const program = require('commander')
 const reacterminator = require('../lib/index')
 
 const action = (path) => {
-  if (!path) {
-    console.error('ERROR: No path given!')
-    process.exit(1)
-  }
-
   reacterminator(
     {type: 'path', content: path},
     {

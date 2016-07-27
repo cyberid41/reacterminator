@@ -24,12 +24,12 @@ const additionalReducers = helpers.getAdditional({
 
 const reducers = Object.assign(baseReducers, additionalReducers);
 
-const reducer = (state, action) => {
-  switch (action.type) {
+const reducer = (_state, _action) => {
+  switch (_action.type) {
     case 'REDUX_EXAMPLE_INITIALIZE':
-      return action.value;
+      return _action.value;
     default:
-      return combineReducers(reducers)(state, action);
+      return combineReducers(reducers)(_state, _action);
   }
 }
 

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 const { checkFiles } = require('../helpers');
 
-describe('redux-integration', () => {
+describe('integration/redux-integration', () => {
   it('should hook redux into component and generate redux files', () => {
     checkFiles({
       inputPath: './examples/test/redux-example.html',
@@ -21,6 +21,7 @@ describe('redux-integration', () => {
         'generated/reducers/redux-example/index.js',
         'generated/reducers/index.js',
         'generated/store.js',
+        'custom/index.js',
       ],
     });
   });

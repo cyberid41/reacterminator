@@ -18,8 +18,9 @@ program
 program.on('--help', () => {
   console.log('  Examples:')
   console.log('')
-  console.log('    $ reacterminator -i design.html')
-  console.log('    $ reacterminator -i design/')
+  console.log('    $ reacterminator c design.html')
+  console.log('    $ reacterminator c design/')
+  console.log('    $ reacterminator g components/MyCustom')
   console.log('')
   console.log('  Notes:')
   console.log('')

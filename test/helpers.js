@@ -10,19 +10,16 @@ function checkFile(outputDir, outputFile) {
   );
 }
 
-function processFile(inputPath) {
+function checkFiles ({inputPath, outputDir, outputFiles}) {
+  shell.rm('-rf', './reacterminator');
   reacterminator(
     { type: 'path', content: inputPath },
     { fileToComponent: true, generateFiles: true }
   );
-}
-
-function checkFiles ({inputPath, outputDir, outputFiles}) {
-  shell.rm('-rf', './reacterminator');
-  processFile(inputPath);
   outputFiles.forEach((outputFile) => checkFile(outputDir, outputFile));
 }
 
 module.exports = {
   checkFiles,
+  checkFile,
 };

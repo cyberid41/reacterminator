@@ -1,12 +1,12 @@
 import custom from '../../../custom/index';
 import actionTypeConstants from '../../action-type-constants/index';
 
-const reducer = (state = '', action) => {
-  switch (action.type) {
+const reducer = (_state = '', _action) => {
+  switch (_action.type) {
     case actionTypeConstants.reduxExample.changeName:
-      return action.value;
+      return _action.value;
     default:
-      return state;
+      return _state;
   }
 }
 

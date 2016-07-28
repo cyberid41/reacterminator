@@ -5,23 +5,23 @@ const processEachJsxSnippet = require('../../../../../../lib/plugins/redux/proce
 const generate = require('babel-generator').default
 
 function checkOutput (input, { code, state, action }) {
-    const ast = parse(input)
-
-    const component = {
-      ast,
+    const inputComponent = {
+      ast: parse(input),
       componentName: 'User',
       pathName: 'true',
       plugins: { redux: {} },
     }
 
-    const { redux } = processEachJsxSnippet({component}).component.plugins
+    const outputComponent = processEachJsxSnippet({component: inputComponent}).component
+    const outputRedux = outputComponent.plugins.redux
+    const outputAst =  outputComponent.ast
 
-    assert.deepEqual(redux.state, state)
-    assert.deepEqual(redux.action, action)
-    assert.deepEqual(generate(ast, {}, '').code, code)
+    assert.deepEqual(outputRedux.state, state)
+    assert.deepEqual(outputRedux.action, action)
+    assert.deepEqual(generate(outputAst, {}, '').code, code)
 }
 
-describe.only('lib/plugins/redux/process-each-jsx-snippet', function () {
+describe('lib/plugins/redux/process-each-jsx-snippet', function () {
   it('should add value and onChange to input', function () {
     checkOutput(
       '<input id="name" />',
@@ -150,6 +150,17 @@ describe.only('lib/plugins/redux/process-each-jsx-snippet', function () {
 ,
         state: ['state.user.user'],
         action: ['action.user.selectUser']
+      }
+    )
+  })
+
+  it('should change value in the tag', function () {
+    checkOutput(
+      '<div data-component-redux-value="name">Replace Me</div>',
+      {
+        code: '<div>{this.props[\'state.user.name\']}</div>',
+        state: ['state.user.name'],
+        action: []
       }
     )
   })

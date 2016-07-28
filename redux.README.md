@@ -70,17 +70,14 @@ NOTE: only tags with ids are recognized.
 - data-component-redux-type
   We will generate redux code even though it is not a input type
 
-## How to get multiple state, say you want to submit a form?
-In the action-creator, you can import the store and get any state you want.
-
-```
-import actionTypeConstants from '../../action-type-constants/index';
-import store from '/client/imports/store'
-
-export default function selectNotificationsSessionUpdates(event) {
-  return {
-    type: actionTypeConstants.accountNotifications.selectNotificationsSessionUpdates,
-    value: event.target.value
-  };
-}
-```
+## data-component-redux-value
+  FROM:
+  ```
+    <div data-component-redux-value="name">placeholder in design</div>
+  ```
+  TO:
+  ```
+    // NOTE: the reducer is created too, also the relevent component is
+    // hocked to redux store.
+    <div>{this.props['state.user.name']}</div>;
+  ```

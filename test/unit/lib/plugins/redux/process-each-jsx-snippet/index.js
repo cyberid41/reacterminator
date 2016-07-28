@@ -158,7 +158,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
     checkOutput(
       '<div data-component-redux-value="name">Replace Me</div>',
       {
-        code: '<div>{this.props[\'state.user.name\']}</div>',
+        code: '<div >{this.props[\'state.user.name\']}</div>;',
         state: ['state.user.name'],
         action: []
       }

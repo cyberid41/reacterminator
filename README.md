@@ -162,7 +162,7 @@ console.log(components.Unicorn.formattedFileSnippet)
 
 ### Setup
 - install correct node version
-```shell
+```
 nvm install # .nvmrc is used to specify node version
 nvm use
 ```

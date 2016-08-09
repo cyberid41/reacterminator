@@ -37,7 +37,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
     checkOutput(
       '<textarea id="name" />',
       {
-        code: '<textarea id="name" value={this.props[\'state.user.name\']} onChange={this.props[\'action.user.changeName\']} />;',
+        code: '<textarea id="name" onChange={this.props[\'action.user.changeName\']} value={this.props[\'state.user.name\']} />;',
         state: ['state.user.name'],
         action: ['action.user.changeName']
       }
@@ -48,7 +48,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
     checkOutput(
       '<input id="email" type="email" />',
       {
-        code: '<input id="email" type="email" value={this.props[\'state.user.email\']} onChange={this.props[\'action.user.changeEmail\']} />;',
+        code: '<input id="email" type="email" onChange={this.props[\'action.user.changeEmail\']} value={this.props[\'state.user.email\']} />;',
         state: ['state.user.email'],
         action: ['action.user.changeEmail']
       }
@@ -114,7 +114,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
     checkOutput(
       '<input id="name" type="radio" />',
       {
-        code: '<input id="name" type="radio" checked={this.props[\'state.user.name\']} onChange={this.props[\'action.user.changeName\']} />;',
+        code: '<input id="name" type="radio" onChange={this.props[\'action.user.changeName\']} checked={this.props[\'state.user.name\']} />;',
         state: ['state.user.name'],
         action: ['action.user.changeName']
       }
@@ -125,7 +125,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
     checkOutput(
       '<input id="name" type="checkbox" />',
       {
-        code: '<input id="name" type="checkbox" checked={this.props[\'state.user.name\']} onChange={this.props[\'action.user.toggleName\']} />;',
+        code: '<input id="name" type="checkbox" onChange={this.props[\'action.user.toggleName\']} checked={this.props[\'state.user.name\']} />;',
         state: ['state.user.name'],
         action: ['action.user.toggleName']
       }
@@ -142,7 +142,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
 `,
       {
         code: `\
-<select name="select" id="user" value={this.props['state.user.user']} onChange={this.props['action.user.selectUser']}>
+<select name="select" id="user" onChange={this.props['action.user.selectUser']} value={this.props['state.user.user']}>
   <option value="value1">Value 1</option>
   <option value="value2" selected>Value 2</option>
   <option value="value3">Value 3</option>

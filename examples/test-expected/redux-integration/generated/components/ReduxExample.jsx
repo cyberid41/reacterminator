@@ -12,18 +12,18 @@ class ReduxExample extends React.Component {
           <a href='#' id='anchor-button' onClick={this.props['action.reduxExample.clickAnchorButton']} /> <a href='http://www.google.com' id='anchor-button-absolute-url' />
           <input id='name'
             name='name'
-            value={this.props['state.reduxExample.name']}
-            onChange={this.props['action.reduxExample.changeName']} />
+            onChange={this.props['action.reduxExample.changeName']}
+            value={this.props['state.reduxExample.name']} />
           <input id='is-going'
             type='checkbox'
             name='is-going'
-            checked={this.props['state.reduxExample.isGoing']}
-            onChange={this.props['action.reduxExample.toggleIsGoing']} />
+            onChange={this.props['action.reduxExample.toggleIsGoing']}
+            checked={this.props['state.reduxExample.isGoing']} />
           <input id='phone-number'
             type='text'
             name='phone-number-login'
-            value={this.props['state.reduxExample.phoneNumber']}
-            onChange={this.props['action.reduxExample.changePhoneNumber']} />
+            onChange={this.props['action.reduxExample.changePhoneNumber']}
+            value={this.props['state.reduxExample.phoneNumber']} />
           <button id='single-button' onClick={this.props['action.reduxExample.clickSingleButton']} />
           <ComponentA />
         </form>

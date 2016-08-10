@@ -13,6 +13,8 @@ class ListItem extends React.Component {
 ;
 
 const customize = custom['components/ListItem'] || ((x) => x);
-const ListItemWithCustom = customize(ListItem);
+const ListItemWithCustom = customize(ListItem, {
+  React
+});
 
 export default ListItemWithCustom;

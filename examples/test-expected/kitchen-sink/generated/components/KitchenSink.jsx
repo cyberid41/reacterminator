@@ -14,6 +14,9 @@ class KitchenSink extends React.Component {
 ;
 
 const customize = custom['components/KitchenSink'] || ((x) => x);
-const KitchenSinkWithCustom = customize(KitchenSink);
+const KitchenSinkWithCustom = customize(KitchenSink, {
+  React,
+  Header
+});
 
 export default KitchenSinkWithCustom;

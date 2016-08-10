@@ -19,6 +19,13 @@ class App extends React.Component {
 ;
 
 const customize = custom['components/App'] || ((x) => x);
-const AppWithReduxWithCustom = customize(AppWithRedux);
+const AppWithReduxWithCustom = customize(AppWithRedux, {
+  React,
+  ReduxExample,
+  custom,
+  Stack,
+  Provider,
+  store
+});
 
 export default AppWithReduxWithCustom;

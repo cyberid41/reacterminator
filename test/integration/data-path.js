@@ -23,7 +23,9 @@ class Login extends React.Component {
 ;
 
 const customize = custom['components/Login'] || ((x) => x);
-const LoginWithCustom = customize(Login);
+const LoginWithCustom = customize(Login, {
+  React
+});
 
 export default LoginWithCustom;
 `;
@@ -50,7 +52,13 @@ class App extends React.Component {
 ;
 
 const customize = custom['components/App'] || ((x) => x);
-const AppWithCustom = customize(App);
+const AppWithCustom = customize(App, {
+  React,
+  Login,
+  Stack,
+  Provider,
+  store
+});
 
 export default AppWithCustom;
 `;
@@ -91,7 +99,13 @@ class App extends React.Component {
 ;
 
 const customize = custom['components/App'] || ((x) => x);
-const AppWithCustom = customize(App);
+const AppWithCustom = customize(App, {
+  React,
+  Index,
+  Stack,
+  Provider,
+  store
+});
 
 export default AppWithCustom;
 `;

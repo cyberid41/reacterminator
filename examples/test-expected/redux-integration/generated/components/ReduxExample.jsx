@@ -55,6 +55,11 @@ const ReduxExampleWithRedux = reduxConnect(
 )(ReduxExample);
 
 const customize = custom['components/ReduxExample'] || ((x) => x);
-const ReduxExampleWithReduxWithCustom = customize(ReduxExampleWithRedux);
+const ReduxExampleWithReduxWithCustom = customize(ReduxExampleWithRedux, {
+  React,
+  ComponentA,
+  reduxConnect,
+  action
+});
 
 export default ReduxExampleWithReduxWithCustom;

@@ -14,6 +14,9 @@ class ComponentB extends React.Component {
 ;
 
 const customize = custom['components/ComponentB'] || ((x) => x);
-const ComponentBWithCustom = customize(ComponentB);
+const ComponentBWithCustom = customize(ComponentB, {
+  React,
+  ComponentC
+});
 
 export default ComponentBWithCustom;

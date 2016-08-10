@@ -19,6 +19,12 @@ class App extends React.Component {
 ;
 
 const customize = custom['components/App'] || ((x) => x);
-const AppWithCustom = customize(App);
+const AppWithCustom = customize(App, {
+  React,
+  KitchenSink,
+  Stack,
+  Provider,
+  store
+});
 
 export default AppWithCustom;

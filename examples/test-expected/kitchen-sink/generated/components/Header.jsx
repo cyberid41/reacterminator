@@ -20,6 +20,10 @@ class Header extends React.Component {
 ;
 
 const customize = custom['components/Header'] || ((x) => x);
-const HeaderWithCustom = customize(Header);
+const HeaderWithCustom = customize(Header, {
+  React,
+  ListItem,
+  CustomRoute
+});
 
 export default HeaderWithCustom;

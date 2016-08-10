@@ -13,6 +13,8 @@ class CustomRoute extends React.Component {
 ;
 
 const customize = custom['components/CustomRoute'] || ((x) => x);
-const CustomRouteWithCustom = customize(CustomRoute);
+const CustomRouteWithCustom = customize(CustomRoute, {
+  React
+});
 
 export default CustomRouteWithCustom;

@@ -37,7 +37,7 @@ const ReduxExampleWithRedux = reduxConnect(
   (state) => ({
     'state.reduxExample.name': state.reduxExample.name,
     'state.reduxExample.isGoing': state.reduxExample.isGoing,
-    'state.reduxExample.phoneNumber': state.reduxExample.phoneNumber
+    'state.reduxExample.phoneNumber': state.reduxExample.phoneNumber,
   }),
   {
     'action.reduxExample.submitEmailForm': action.reduxExample.submitEmailForm,
@@ -45,7 +45,7 @@ const ReduxExampleWithRedux = reduxConnect(
     'action.reduxExample.changeName': action.reduxExample.changeName,
     'action.reduxExample.toggleIsGoing': action.reduxExample.toggleIsGoing,
     'action.reduxExample.changePhoneNumber': action.reduxExample.changePhoneNumber,
-    'action.reduxExample.clickSingleButton': action.reduxExample.clickSingleButton
+    'action.reduxExample.clickSingleButton': action.reduxExample.clickSingleButton,
   }
 )(ReduxExample);
 

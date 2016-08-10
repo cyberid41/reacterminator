@@ -14,7 +14,7 @@ describe('lib/plugins/redux/process-each-exports', function () {
 `const ComponentAWithRedux = reduxConnect(
   (state) => ({
     'state.stateA': state.stateA,
-'state.stateB': state.stateB
+    'state.stateB': state.stateB,
   }),
   {}
 )(ComponentA);\n`
@@ -33,7 +33,7 @@ describe('lib/plugins/redux/process-each-exports', function () {
 `const ComponentAWithRedux = reduxConnect(
   null,
   {
-    'action.actionA': action.actionA
+    'action.actionA': action.actionA,
   }
 )(ComponentA);\n`
     )
@@ -49,10 +49,10 @@ describe('lib/plugins/redux/process-each-exports', function () {
       snippet,
 `const ComponentAWithRedux = reduxConnect(
   (state) => ({
-    'state.stateA': state.stateA
+    'state.stateA': state.stateA,
   }),
   {
-    'action.actionA': action.actionA
+    'action.actionA': action.actionA,
   }
 )(ComponentA);\n`
     )

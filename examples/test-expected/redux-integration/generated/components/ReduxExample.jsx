@@ -24,7 +24,7 @@ class ReduxExample extends React.Component {
             name='phone-number-login'
             onChange={this.props['action.reduxExample.changePhoneNumber']}
             value={this.props['state.reduxExample.phoneNumber']} />
-          <div class='error-explanation'>
+          <div className='error-explanation'>
             {this.props['state.reduxExample.phoneNumberError']}
           </div>
           <button id='single-button' onClick={this.props['action.reduxExample.clickSingleButton']} />

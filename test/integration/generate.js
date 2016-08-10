@@ -31,9 +31,9 @@ describe('integration/generate', function () {
     generate('action-type-constants/unicorn/change-email', 'reacterminator')
     checkFile('generate', 'custom/action-type-constants/unicorn/change-email.js')
 
-    generate('action-creators/unicorn/sumit-signup-form', 'reacterminator')
-    checkFile('generate', 'custom/action-creators/unicorn/sumit-signup-form.js')
-    checkFile('generate', 'custom/action-type-constants/unicorn/sumit-signup-form.js')
+    generate('action-creators/unicorn/submit-signup-form', 'reacterminator')
+    checkFile('generate', 'custom/action-creators/unicorn/submit-signup-form.js')
+    checkFile('generate', 'custom/action-type-constants/unicorn/submit-signup-form.js')
 
     generate('reducers/unicorn/name', 'reacterminator')
     checkFile('generate', 'custom/reducers/unicorn/name.js')

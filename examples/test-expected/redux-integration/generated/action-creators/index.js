@@ -15,7 +15,7 @@ const additionalActionCreators = helpers.getAdditional({
   custom,
 });
 
-const actionCreators  = Object.assign(baseActionCreators, additionalActionCreators);
+const actionCreators = Object.assign(baseActionCreators, additionalActionCreators);
 
 const customize = custom['action-creators/index'] || ((x) => x)
 

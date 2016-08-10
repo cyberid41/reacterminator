@@ -33,7 +33,7 @@ const additionalActionTypeConstants = helpers.getAdditional({
   custom,
 });
 
-const actionTypeConstants  = Object.assign(baseActionTypeConstants, additionalActionTypeConstants);
+const actionTypeConstants = Object.assign(baseActionTypeConstants, additionalActionTypeConstants);
 
 const customize = custom['action-type-constants/redux-example/index'] || ((x) => x)
 

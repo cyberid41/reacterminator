@@ -26,7 +26,7 @@ describe('lib/plugins/redux/process-each-jsx-snippet', function () {
     checkOutput(
       '<input id="name" />',
       {
-        code: '<input id="name" value={this.props[\'state.user.name\']} onChange={this.props[\'action.user.changeName\']} />;',
+        code: '<input id="name" onChange={this.props[\'action.user.changeName\']} value={this.props[\'state.user.name\']} />;',
         state: ['state.user.name'],
         action: ['action.user.changeName']
       }

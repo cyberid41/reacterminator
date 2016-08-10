@@ -24,6 +24,9 @@ class ReduxExample extends React.Component {
             name='phone-number-login'
             onChange={this.props['action.reduxExample.changePhoneNumber']}
             value={this.props['state.reduxExample.phoneNumber']} />
+          <div class='error-explanation'>
+            {this.props['state.reduxExample.phoneNumberError']}
+          </div>
           <button id='single-button' onClick={this.props['action.reduxExample.clickSingleButton']} />
           <ComponentA />
         </form>
@@ -38,6 +41,7 @@ const ReduxExampleWithRedux = reduxConnect(
     'state.reduxExample.name': state.reduxExample.name,
     'state.reduxExample.isGoing': state.reduxExample.isGoing,
     'state.reduxExample.phoneNumber': state.reduxExample.phoneNumber,
+    'state.reduxExample.phoneNumberError': state.reduxExample.phoneNumberError,
   }),
   {
     'action.reduxExample.submitEmailForm': action.reduxExample.submitEmailForm,
@@ -45,6 +49,7 @@ const ReduxExampleWithRedux = reduxConnect(
     'action.reduxExample.changeName': action.reduxExample.changeName,
     'action.reduxExample.toggleIsGoing': action.reduxExample.toggleIsGoing,
     'action.reduxExample.changePhoneNumber': action.reduxExample.changePhoneNumber,
+    'action.reduxExample.changePhoneNumberError': action.reduxExample.changePhoneNumberError,
     'action.reduxExample.clickSingleButton': action.reduxExample.clickSingleButton,
   }
 )(ReduxExample);

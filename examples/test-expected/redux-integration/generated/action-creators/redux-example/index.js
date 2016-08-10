@@ -1,4 +1,5 @@
 import changeName from './change-name';
+import changePhoneNumberError from './change-phone-number-error';
 import changePhoneNumber from './change-phone-number';
 import clickAnchorButton from './click-anchor-button';
 import clickSingleButton from './click-single-button';
@@ -9,6 +10,7 @@ import helpers from '../../helpers';
 
 const baseActionCreators = {
   changeName,
+  changePhoneNumberError,
   changePhoneNumber,
   clickAnchorButton,
   clickSingleButton,
@@ -21,6 +23,7 @@ const additionalActionCreators = helpers.getAdditional({
   path: 'redux-example',
   baseFiles: [
     'changeName',
+    'changePhoneNumberError',
     'changePhoneNumber',
     'clickAnchorButton',
     'clickSingleButton',

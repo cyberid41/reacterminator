@@ -1,5 +1,6 @@
 import isGoing from './is-going';
 import name from './name';
+import phoneNumberError from './phone-number-error';
 import phoneNumber from './phone-number';
 import { combineReducers } from 'redux';
 import custom from '../../../custom/index';
@@ -8,6 +9,7 @@ import helpers from '../../helpers';
 const baseReducers = {
   isGoing,
   name,
+  phoneNumberError,
   phoneNumber
 };
 
@@ -17,6 +19,7 @@ const additionalReducers = helpers.getAdditional({
   baseFiles: [
     'isGoing',
     'name',
+    'phoneNumberError',
     'phoneNumber',
   ],
   custom,

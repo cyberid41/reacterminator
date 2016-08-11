@@ -9,6 +9,7 @@ import submitEmailForm from './submit-email-form';
 import toggleIsGoing from './toggle-is-going';
 import custom from '../../../custom/index';
 import store from '../../store';
+import actionTypeConstants from '../../action-type-constants/index';
 
 const actionCreators = {
   changeIsGoingError,
@@ -24,4 +25,4 @@ const actionCreators = {
 
 const customize = custom['action-creators/redux-example/index'] || ((x) => x)
 
-export default customize(actionCreators, { store });
+export default customize(actionCreators, { actionTypeConstants, store });

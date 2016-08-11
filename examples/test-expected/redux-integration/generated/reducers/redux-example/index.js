@@ -6,6 +6,7 @@ import phoneNumberError from './phone-number-error';
 import phoneNumber from './phone-number';
 import { combineReducers } from 'redux';
 import custom from '../../../custom/index';
+import actionTypeConstants from '../../action-type-constants/index';
 
 const reducers = {
   isGoingError,
@@ -20,4 +21,4 @@ const combinedReducer = combineReducers(reducers);
 
 const customize = custom['reducers/redux-example/index'] || ((x) => x);
 
-export default customize(combinedReducer, reducers);
+export default customize(combinedReducer, { actionTypeConstants, reducers });

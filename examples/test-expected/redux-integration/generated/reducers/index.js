@@ -1,9 +1,11 @@
 import reduxExample from './redux-example/index';
+import { reducer as paramStore } from 'param-store';
 import { combineReducers } from 'redux';
 import custom from '../../custom/index';
 
 const reducers = {
-  reduxExample
+  reduxExample,
+  paramStore,
 };
 
 const combinedReducer = combineReducers(reducers);

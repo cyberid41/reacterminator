@@ -1,6 +1,6 @@
 export default (base, { actionTypeConstants, store }) => (
   (event) => {
-    const {  } = store.get();
+    const formValues = store.getState().unicorn;
 
     return {
       type: actionTypeConstants.unicorn.submitSignupForm,

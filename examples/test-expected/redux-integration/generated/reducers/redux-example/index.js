@@ -1,4 +1,6 @@
+import isGoingError from './is-going-error';
 import isGoing from './is-going';
+import nameError from './name-error';
 import name from './name';
 import phoneNumberError from './phone-number-error';
 import phoneNumber from './phone-number';
@@ -7,7 +9,9 @@ import custom from '../../../custom/index';
 import helpers from '../../helpers';
 
 const baseReducers = {
+  isGoingError,
   isGoing,
+  nameError,
   name,
   phoneNumberError,
   phoneNumber
@@ -17,7 +21,9 @@ const additionalReducers = helpers.getAdditional({
   type: 'reducers',
   path: 'redux-example',
   baseFiles: [
+    'isGoingError',
     'isGoing',
+    'nameError',
     'name',
     'phoneNumberError',
     'phoneNumber',

@@ -14,11 +14,17 @@ class ReduxExample extends React.Component {
             name='name'
             onChange={this.props['action.reduxExample.changeName']}
             value={this.props['state.reduxExample.name']} />
+          <div className='error-explanation'>
+            {this.props['state.reduxExample.nameError']}
+          </div>
           <input id='is-going'
             type='checkbox'
             name='is-going'
             onChange={this.props['action.reduxExample.toggleIsGoing']}
             checked={this.props['state.reduxExample.isGoing']} />
+          <div className='error-explanation'>
+            {this.props['state.reduxExample.isGoingError']}
+          </div>
           <input id='phone-number'
             type='text'
             name='phone-number-login'
@@ -39,7 +45,9 @@ class ReduxExample extends React.Component {
 const ReduxExampleWithRedux = reduxConnect(
   (state) => ({
     'state.reduxExample.name': state.reduxExample.name,
+    'state.reduxExample.nameError': state.reduxExample.nameError,
     'state.reduxExample.isGoing': state.reduxExample.isGoing,
+    'state.reduxExample.isGoingError': state.reduxExample.isGoingError,
     'state.reduxExample.phoneNumber': state.reduxExample.phoneNumber,
     'state.reduxExample.phoneNumberError': state.reduxExample.phoneNumberError,
   }),
@@ -47,7 +55,9 @@ const ReduxExampleWithRedux = reduxConnect(
     'action.reduxExample.submitEmailForm': action.reduxExample.submitEmailForm,
     'action.reduxExample.clickAnchorButton': action.reduxExample.clickAnchorButton,
     'action.reduxExample.changeName': action.reduxExample.changeName,
+    'action.reduxExample.changeNameError': action.reduxExample.changeNameError,
     'action.reduxExample.toggleIsGoing': action.reduxExample.toggleIsGoing,
+    'action.reduxExample.changeIsGoingError': action.reduxExample.changeIsGoingError,
     'action.reduxExample.changePhoneNumber': action.reduxExample.changePhoneNumber,
     'action.reduxExample.changePhoneNumberError': action.reduxExample.changePhoneNumberError,
     'action.reduxExample.clickSingleButton': action.reduxExample.clickSingleButton,

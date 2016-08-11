@@ -6,9 +6,8 @@ import clickSingleButton from './click-single-button';
 import submitEmailForm from './submit-email-form';
 import toggleIsGoing from './toggle-is-going';
 import custom from '../../../custom/index';
-import helpers from '../../helpers';
 
-const baseActionTypeConstants = {
+const actionTypeConstants = {
   changeName,
   changePhoneNumberError,
   changePhoneNumber,
@@ -18,23 +17,6 @@ const baseActionTypeConstants = {
   toggleIsGoing
 };
 
-const additionalActionTypeConstants = helpers.getAdditional({
-  type: 'action-type-constants',
-  path: 'redux-example',
-  baseFiles: [
-    'changeName',
-    'changePhoneNumberError',
-    'changePhoneNumber',
-    'clickAnchorButton',
-    'clickSingleButton',
-    'submitEmailForm',
-    'toggleIsGoing',
-  ],
-  custom,
-});
-
-const actionTypeConstants = Object.assign(baseActionTypeConstants, additionalActionTypeConstants);
-
 const customize = custom['action-type-constants/redux-example/index'] || ((x) => x)
 
-export default customize(actionTypeConstants, actionTypeConstants);
+export default customize(actionTypeConstants);

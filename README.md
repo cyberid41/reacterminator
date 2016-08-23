@@ -174,6 +174,6 @@ npm run test
 ```
 
 ### Resouces
-- [cheerio](https://github.com/cheeriojs/cheerio)
-- [babel](https://github.com/babel/babel)
+- [Cheerio](https://github.com/cheeriojs/cheerio)
+- [Babel](https://github.com/babel/babel)
 - [Trello](https://trello.com/b/n7iRAJ7M/reacterminator)

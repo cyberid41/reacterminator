@@ -23,12 +23,12 @@
 ## Usage
 
 ### How to use reacterminator?
-reacterminator converts htmls into react components in es6 syntax.
+reacterminator converts html into es6 react components.
 
-You need to annoate the html tags with several simple
-[data attributes](data-attributes.README.md) that reacterminator recognize.
+To use, you need to annotate your html tags with several simple
+[data attributes](data-attributes.README.md) that reacterminator recognizes.
 
-For example, you can add a `data-component-name` attribute to let
+For example, you can add a `data-component-name` attribute to your html to let
 reacterminator know that it is a react component:
 ```
 // file: example.html
@@ -37,7 +37,7 @@ reacterminator know that it is a react component:
 </body>
 ```
 
-Then let reacterminator do the chores:
+Then let reacterminator do the work:
 ```
 $ reacterminator convert example.html
 ```
@@ -95,7 +95,7 @@ You can use `reacterminator` or `rt` for short.
 
   Notes:
 
-    If the input is a folder, the files ends with -ignore.html will be ignored.
+    If the input is a folder, files ending with -ignore.html will be ignored.
 ```
 
 ### NODE
@@ -107,16 +107,16 @@ You can use `reacterminator` or `rt` for short.
  * {('path'|'string')} input.type
  * {string} input.content
  *          When input.type is 'string', input.content is the html content.
- *          When input.type is 'path', input.content specify the path.
+ *          When input.type is 'path', input.content specifies the path.
  *          The path can be a directory or a file.
  *
  * @param {Object} options
  * {boolean} [options.generateFiles=false]
  * {string}  [options.outputPath='./components']
  * {boolean} [options.recursive=false]
- *           When it is true, reacterminator will find .html files recursivly
- *           and convert all to them into react components.
- *           When it is false, reacterminator will only find the .html files
+ *           When options.recursive is true, reacterminator will find .html files recursivly
+ *           and convert them into react components.
+ *           When false, reacterminator will only find the .html files
  *           in the current directory.
  **/
 

@@ -23,9 +23,9 @@
 ## Usage
 
 ### How to use reacterminator?
-reacterminator converts html into es6 react components.
+Reacterminator converts html into es6 react components.
 
-To use, you need to annotate your html tags with several simple
+To get started, annotate your html tags with several simple
 [data attributes](data-attributes.README.md) that reacterminator recognizes.
 
 For example, you can add a `data-component-name` attribute to your html to let

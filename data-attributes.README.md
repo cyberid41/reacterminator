@@ -90,3 +90,25 @@
     }
   }
   ```
+
+- data-component-custom
+
+  FROM:
+  ```
+  <div
+    data-component-name="Login"
+    data-component-custom="true">
+  </div>
+  ```
+
+  TO:
+  ```
+  // Login.jsx
+  import React from 'react';
+
+  export default class Login extends React.Component {
+    render () {
+      return null;
+    }
+  }
+  ```

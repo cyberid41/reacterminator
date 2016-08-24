@@ -2,6 +2,7 @@ const fs = require('fs');
 const shell = require('shelljs');
 const { assert } = require('chai');
 const reacterminator = require('../lib/index');
+const _ = require('lodash');
 
 function checkFile(outputDir, outputFile) {
   assert.deepEqual(
@@ -10,11 +11,11 @@ function checkFile(outputDir, outputFile) {
   );
 }
 
-function checkFiles ({inputPath, outputDir, outputFiles}) {
+function checkFiles ({inputPath, outputDir, outputFiles, options={}}) {
   shell.rm('-rf', './reacterminator');
   reacterminator(
     { type: 'path', content: inputPath },
-    { fileToComponent: true, generateFiles: true }
+    _.extend({}, { fileToComponent: true, generateFiles: true }, options)
   );
   outputFiles.forEach((outputFile) => checkFile(outputDir, outputFile));
 }

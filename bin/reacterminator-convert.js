@@ -10,15 +10,29 @@ const action = (path) => {
       outputPath: program.outputPath,
       recursive: !program.notRecursive,
       fileToComponent: !program.notFileToComponent,
+      addErrorDivAfterInput: program.addErrorDivAfterInput,
       generateFiles: true,
     }
   )
 }
 
 program
-  .option('-p, --output-path [./reacterminator]', 'specify output path')
-  .option('-r, --not-recursive', 'find files in the input folder NONE-recursivly')
-  .option('-f, --not-file-to-component', 'NOT create one component for each html file')
+  .option(
+    '-p, --output-path [./reacterminator]',
+    'specify output path'
+  )
+  .option(
+    '-r, --not-recursive',
+    'find files in the input folder NONE-recursivly'
+  )
+  .option(
+    '-f, --not-file-to-component',
+    'NOT create one component for each html file'
+  )
+  .option(
+    '-e, --add-error-div-after-input',
+    'Add error div after input and connect with redux'
+  )
   .arguments('<path>')
   .action(action)
 

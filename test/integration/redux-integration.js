@@ -23,6 +23,9 @@ describe('integration/redux-integration', () => {
         'generated/store.js',
         'custom/index.js',
       ],
+      options: {
+        addErrorDivAfterInput: true
+      }
     });
   });
 

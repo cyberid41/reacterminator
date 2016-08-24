@@ -95,20 +95,26 @@
 
   FROM:
   ```
-  <div
-    data-component-name="Login"
-    data-component-custom="true">
-  </div>
+  // data-component-custom.html
+  <html>
+  <body>
+    <div data-component-name="Login" data-component-custom="true">
+      <form>
+        <input type="text" id="user" />
+      </form>
+    </div>
+  </body>
+  </html>
   ```
 
   TO:
   ```
-  // Login.jsx
+  // DataComponentCustom.jsx
   import React from 'react';
 
-  export default class Login extends React.Component {
+  export default class DataComponentCustom extends React.Component {
     render () {
-      return null;
+      return <div><Login/></div>;
     }
   }
   ```

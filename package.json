@@ -42,6 +42,7 @@
     "semantic-release": "^4.3.5"
   },
   "dependencies": {
+    "babel-traverse": "git://github.com/poetic/babel-traverse.git#3272f03380b22ebf1608b0a9b89bff991c746695",
     "babel-generator": "^6.11.0",
     "babylon": "^6.8.2",
     "chalk": "^1.1.3",
